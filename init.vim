@@ -59,7 +59,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-" " assuming your using vim-plug: https://github.com/junegunn/vim-plug
+" " has weird cursor behavior
 " Plug 'ncm2/ncm2'
 " " ncm2 requires nvim-yarp
 " Plug 'roxma/nvim-yarp'
