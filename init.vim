@@ -57,13 +57,13 @@ Plug 'autozimu/LanguageClient-neovim', {
       \ }
 
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " " assuming your using vim-plug: https://github.com/junegunn/vim-plug
-" Plug 'ncm2/ncm2'
-" " ncm2 requires nvim-yarp
-" Plug 'roxma/nvim-yarp'
-" Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2'
+" ncm2 requires nvim-yarp
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-path'
 
 " Git Stuff
 Plug 'mattn/gist-vim'
@@ -102,7 +102,7 @@ call plug#end()
 
 source ~/.config/nvim/settings.vim
 source ~/.config/nvim/keymaps.vim
-source ~/.config/nvim/deoplete.vim
+source ~/.config/nvim/autocomplete.vim
 source ~/.config/nvim/languageClient.vim
 source ~/.config/nvim/lightline.vim
 source ~/.config/nvim/snippets.vim
