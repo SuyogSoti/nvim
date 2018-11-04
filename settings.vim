@@ -19,10 +19,12 @@ set noshowmode
 set hidden
 "mouse control
 set mouse+=a
-" colorscheme base16-gruvbox-dark-pale
 set background=dark
 set termguicolors
-colorscheme base16-oceanicnext
+colorscheme base16-onedark
+" colorscheme base16-oceanicnext
+" colorscheme base16-gruvbox-dark-pale
+set cc=80
 set laststatus=2
 set visualbell
 set inccommand=split

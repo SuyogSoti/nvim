@@ -42,6 +42,7 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'tpope/vim-eunuch'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Raimondi/delimitMate'
+Plug 'godlygeek/tabular'
 
 " searching?
 Plug 'easymotion/vim-easymotion'
@@ -81,6 +82,9 @@ Plug 'tpope/vim-rails'
 
 " Coffee Script
 Plug 'kchmck/vim-coffee-script'
+
+"R
+Plug 'jalvesaq/Nvim-R'
 
 " File navigation
 Plug 'scrooloose/nerdtree'
