@@ -31,4 +31,6 @@ let g:LanguageClient_serverCommands = {
 nnoremap  gh :call LanguageClient#textDocument_hover()<CR>
 nnoremap  gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap  gr :call LanguageClient#textDocument_rename()<CR>
+nnoremap  gl :call LanguageClient#textDocument_documentSymbol()<CR>
 
+let g:LanguageClient_hasSnippetSupport=0

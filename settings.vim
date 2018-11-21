@@ -12,6 +12,7 @@ set tabstop=4
 set smarttab
 set autoindent
 set splitbelow
+set autoread
 set splitright
 " completion
 set noshowmode
@@ -21,9 +22,9 @@ set hidden
 set mouse+=a
 set background=dark
 set termguicolors
-colorscheme base16-onedark
+" colorscheme base16-onedark
 " colorscheme base16-oceanicnext
-" colorscheme base16-gruvbox-dark-pale
+colorscheme base16-gruvbox-dark-pale
 set cc=80
 set laststatus=2
 set visualbell
