@@ -24,7 +24,8 @@ set background=dark
 set termguicolors
 " colorscheme base16-onedark
 " colorscheme base16-oceanicnext
-colorscheme base16-gruvbox-dark-pale
+" colorscheme base16-gruvbox-dark-pale
+colorscheme base16-material
 set cc=80
 set laststatus=2
 set visualbell

@@ -43,6 +43,8 @@ noremap <Leader>sf :BLines<cr>
 noremap <Leader>sb :Lines<cr>
 noremap <Leader>w\ :vsplit<cr>
 noremap <Leader>w- :split<cr>
+noremap <Leader>rr :VimuxRunLastCommand<cr>
+noremap <Leader>rs :VimuxInterruptRunner<cr>
 noremap <A-\> :vsplit<cr>
 noremap <A--> :split<cr>
 noremap <Leader>sp :Ack<space>

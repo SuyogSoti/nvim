@@ -92,6 +92,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 
+" Tmux stuff
+Plug 'benmills/vimux'
+
 " Initialize plugin system
 call plug#end()
 
