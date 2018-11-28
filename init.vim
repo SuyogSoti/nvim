@@ -43,7 +43,6 @@ Plug 'tpope/vim-eunuch'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Raimondi/delimitMate'
 Plug 'godlygeek/tabular'
-Plug 'Yggdroot/indentLine'
 
 " searching?
 Plug 'easymotion/vim-easymotion'
