@@ -9,9 +9,6 @@ let g:gist_show_privates = 1
 set pumheight=10
 
 
-" Autoformat
-noremap <C-A-i> :Neoformat<CR>
-
 " python
 let g:python_highlight_all = 1
 let g:python_highlight_space_errors = 0

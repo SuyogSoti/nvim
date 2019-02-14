@@ -33,7 +33,6 @@ Plug 'tpope/vim-commentary'
 " Note: vim sound make it not change cursor when d is pressed
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'jsfaint/gen_tags.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'sbdchd/neoformat'
 Plug 'sheerun/vim-polyglot'

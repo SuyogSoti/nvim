@@ -1,6 +1,6 @@
 " This will be editor look and feel
+set relativenumber
 :set number
-:set lazyredraw
 "Editor Functioning
 set completeopt-=preview " disable preview window at the bottom of the screen
 set clipboard=unnamedplus
@@ -22,11 +22,12 @@ set hidden
 set mouse+=a
 set background=dark
 set termguicolors
+" colorscheme base16-monokai
 " colorscheme base16-onedark
-" colorscheme base16-oceanicnext
+colorscheme base16-oceanicnext
 " colorscheme base16-gruvbox-dark-pale
-colorscheme base16-material
-set cc=80
+" colorscheme base16-material
+" set cc=80
 set laststatus=2
 set visualbell
 set inccommand=split
@@ -56,10 +57,10 @@ if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 end
 "This is for the cursorline
-" augroup CursorLine
-"   au!
-"   au VimEnter * setlocal cursorline
-"   au WinEnter * setlocal cursorline
-"   au BufWinEnter * setlocal cursorline
-"   au WinLeave * setlocal nocursorline
-" augroup END
+augroup CursorLine
+  au!
+  au VimEnter * setlocal cursorline
+  au WinEnter * setlocal cursorline
+  au BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END

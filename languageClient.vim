@@ -32,6 +32,8 @@ nnoremap  gh :call LanguageClient#textDocument_hover()<CR>
 nnoremap  gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap  gr :call LanguageClient#textDocument_rename()<CR>
 nnoremap  gl :call LanguageClient#textDocument_documentSymbol()<CR>
+" Autoformat
+noremap <C-A-i> :call LanguageClient#textDocument_formatting()<CR>
 
 let g:LanguageClient_hasSnippetSupport=0
 let g:LanguageClient_diagnosticsList = "Location"
