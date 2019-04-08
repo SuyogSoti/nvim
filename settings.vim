@@ -1,5 +1,5 @@
 " This will be editor look and feel
-set relativenumber
+" set relativenumber
 :set number
 "Editor Functioning
 set completeopt-=preview " disable preview window at the bottom of the screen
@@ -10,6 +10,8 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 set smarttab
+set ignorecase
+set smartcase
 set autoindent
 set splitbelow
 set autoread
@@ -30,7 +32,6 @@ colorscheme base16-oceanicnext
 " set cc=80
 set laststatus=2
 set visualbell
-set inccommand=split
 " Spell check in the markdown files
 autocmd FileType markdown,tex setlocal spell
 autocmd FileType ruby set shiftwidth=2
@@ -48,6 +49,7 @@ let g:python3_host_prog = '/usr/bin/python3'
 
 " If its neovim and not regular vim
 if has('nvim')
+  set inccommand=split
   aug fzf_setup
     au!
     au TermOpen term://*FZF tnoremap <silent> <buffer><nowait> <esc> <c-c>
@@ -57,10 +59,10 @@ if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 end
 "This is for the cursorline
-augroup CursorLine
-  au!
-  au VimEnter * setlocal cursorline
-  au WinEnter * setlocal cursorline
-  au BufWinEnter * setlocal cursorline
-  au WinLeave * setlocal nocursorline
-augroup END
+" augroup CursorLine
+"   au!
+"   au VimEnter * setlocal cursorline
+"   au WinEnter * setlocal cursorline
+"   au BufWinEnter * setlocal cursorline
+"   au WinLeave * setlocal nocursorline
+" augroup END

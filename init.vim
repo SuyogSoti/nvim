@@ -96,6 +96,9 @@ Plug 'majutsushi/tagbar'
 " Tmux stuff
 Plug 'benmills/vimux'
 
+" Terminal stuff
+Plug 'kassio/neoterm'
+
 " Initialize plugin system
 call plug#end()
 
