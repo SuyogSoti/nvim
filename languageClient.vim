@@ -8,15 +8,15 @@
 " pip install 'python-language-server[all]'
 " go get -u github.com/sourcegraph/go-langserver
 let g:LanguageClient_serverCommands = {
-      \ 'cpp': ['clangd'],
-      \ 'c': ['clangd'],
-      \ 'typescript': ['typescript-language-server', '--stdio'],
-      \ 'javascript': ['javascript-typescript-stdio'],
-      \ 'javascript.jsx': ['javascript-typescript-stdio'],
-      \ 'ruby': ['solargraph', 'stdio'],
-      \ 'python': ['pyls'],
-      \ 'go': ['go-langserver', '-gocodecompletion', '-func-snippet-enabled=false'],
-      \ }
+                  \ 'cpp': ['clangd'],
+                  \ 'c': ['clangd'],
+                  \ 'typescript': ['typescript-language-server', '--stdio'],
+                  \ 'javascript': ['javascript-typescript-stdio'],
+                  \ 'javascript.jsx': ['javascript-typescript-stdio'],
+                  \ 'ruby': ['solargraph', 'stdio'],
+                  \ 'python': ['pyls'],
+                  \ 'go': ['go-langserver', '-gocodecompletion', '-func-snippet-enabled=false'],
+                  \ }
 
 
 
@@ -28,11 +28,22 @@ let g:LanguageClient_serverCommands = {
 " \ 'c': ['clangd'],
 
 
-nnoremap  gh :call LanguageClient#textDocument_hover()<CR>
-nnoremap  gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap  gr :call LanguageClient#textDocument_rename()<CR>
-nnoremap  gl :call LanguageClient#textDocument_documentSymbol()<CR>
+function LC_maps()
+      if has_key(g:LanguageClient_serverCommands, &filetype)
+            nnoremap  gh :call LanguageClient#textDocument_hover()<CR>
+            nnoremap  gd :call LanguageClient#textDocument_definition()<CR>
+            nnoremap  gr :call LanguageClient#textDocument_rename()<CR>
+            nnoremap  gl :call LanguageClient#textDocument_documentSymbol()<CR>
+            nnoremap <A-C-i> :call LanguageClient#textDocument_formatting()<cr>
 
-let g:LanguageClient_hasSnippetSupport=0
-let g:LanguageClient_diagnosticsList = "Location"
-let g:LanguageClient_useVirtualText=0
+            let g:LanguageClient_hasSnippetSupport=0
+            let g:LanguageClient_diagnosticsList = "Location"
+            let g:LanguageClient_useVirtualText=0
+            set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+      else
+            nnoremap <A-C-i> :Neoformat<cr>
+      endif
+endfunction
+
+autocmd FileType * call LC_maps()
+

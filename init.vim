@@ -114,6 +114,6 @@ source ~/.config/nvim/airline.vim
 source ~/.config/nvim/settings.vim
 source ~/.config/nvim/keymaps.vim
 source ~/.config/nvim/deoplete.vim
-source ~/.config/nvim/languageClient.vim
 source ~/.config/nvim/snippets.vim
 source ~/.config/nvim/general.vim
+source ~/.config/nvim/languageClient.vim " This needs to tbe last on the list
