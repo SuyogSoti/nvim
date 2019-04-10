@@ -24,11 +24,11 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 
 " " Themes
-" Plug 'itchyny/lightline.vim'
-" Plug 'mgee/lightline-bufferline'
+Plug 'itchyny/lightline.vim'
+Plug 'mgee/lightline-bufferline'
 Plug 'chriskempson/base16-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
 " Overall
 Plug 'tpope/vim-commentary'
@@ -104,16 +104,17 @@ call plug#end()
 
 
 
+source ~/.config/nvim/settings.vim
+source ~/.config/nvim/keymaps.vim
+source ~/.config/nvim/snippets.vim
+source ~/.config/nvim/general.vim
+
 " This is an alternate for the completion manager
+source ~/.config/nvim/deoplete.vim
 " source ~/.config/nvim/ncm2.vim
 
 " This is an alternate for useing lightline
-" source ~/.config/nvim/lightline.vim
+" source ~/.config/nvim/airline.vim
+source ~/.config/nvim/lightline.vim
 
-source ~/.config/nvim/airline.vim
-source ~/.config/nvim/settings.vim
-source ~/.config/nvim/keymaps.vim
-source ~/.config/nvim/deoplete.vim
-source ~/.config/nvim/snippets.vim
-source ~/.config/nvim/general.vim
 source ~/.config/nvim/languageClient.vim " This needs to tbe last on the list

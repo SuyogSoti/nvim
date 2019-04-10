@@ -18,6 +18,10 @@ map <A-d> :bp<bar>sp<bar>bn<bar>bd<CR>
 map <A-]> :bnext<CR>
 map <A-[> :bprevious<CR>
 map <A-m> :nohlsearch<CR>
+" Tab navigation like Firefox.
+nnoremap <C-S-tab> :tabprevious<CR>
+nnoremap <C-tab>   :tabnext<CR>
+nnoremap <C-t>     :tabnew<CR>
 map <Leader>mm :wa<bar>15split term://make<space>
 map <Leader>mt :wa<bar>15split term://make<CR>i
 map <Leader>mb :wa<bar>:15split term://make build<CR>i
