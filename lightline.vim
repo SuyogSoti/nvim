@@ -1,9 +1,13 @@
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
 " lightline config
 let g:lightline = {
       \   'colorscheme': 'Tomorrow_Night_Eighties',
       \   'active': {
       \     'left':[ [ 'mode', 'paste' ],
-      \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+      \              [ 'gitbranch', 'readonly', 'filename', 'modified' ],
+      \              [ 'cocstatus', 'readonly','currentfunction']
       \     ]
       \   },
       \   'component': {
@@ -11,6 +15,8 @@ let g:lightline = {
       \   },
       \   'component_function': {
       \     'gitbranch': 'fugitive#head',
+      \     'cocstatus': 'coc#status',
+      \     'currentfunction': 'CocCurrentFunction'
       \   }
       \ }
 let g:lightline.separator = {

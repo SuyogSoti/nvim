@@ -56,6 +56,7 @@ nnoremap <silent> <Plug>window:quickfix:toggle :call <SID>QuickfixToggle()<CR>
 nmap <Leader>tq <Plug>window:quickfix:toggle
 nnoremap <silent> <Plug>window:locationlist:toggle :call <SID>LocationListToggle()<CR>
 nmap <Leader>tl <Plug>window:locationlist:toggle
+nnoremap <A-C-i> :Neoformat<cr>
 
 " Open NERDTree in the directory of the current file (or /home if no file is open)
 map <Leader>tt :call NERDTreeToggleInCurDir()<cr>
@@ -74,7 +75,8 @@ function! NERDTreeToggleInCurDir()
 endfunction
 
 " vim easymotion
-map <Leader>e <Plug>(easymotion-prefix)
+map <A-e> <Plug>(easymotion-prefix)
+map <leader>e <Plug>(easymotion-prefix)
 
 " vim-comentary mappings
 nmap <leader>c <Plug>Commentary

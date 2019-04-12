@@ -20,8 +20,8 @@ Plug 'mattn/webapi-vim'
 
 " Snippets
 Plug 'honza/vim-snippets'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+" Plug 'Shougo/neosnippet'
+" Plug 'Shougo/neosnippet-snippets'
 
 " " Themes
 Plug 'itchyny/lightline.vim'
@@ -52,14 +52,14 @@ Plug 'wincent/ferret'
 
 
 " Autocompletion
-Plug 'Shougo/echodoc.vim'
-Plug 'autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/echodoc.vim'
+" Plug 'autozimu/LanguageClient-neovim', {
+"       \ 'branch': 'next',
+"       \ 'do': 'bash install.sh',
+"       \ }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " " has weird cursor behavior
 " Plug 'ncm2/ncm2'
@@ -107,15 +107,15 @@ call plug#end()
 
 source ~/.config/nvim/settings.vim
 source ~/.config/nvim/keymaps.vim
-source ~/.config/nvim/snippets.vim
 source ~/.config/nvim/general.vim
 
 " This is an alternate for the completion manager
-source ~/.config/nvim/deoplete.vim
+source ~/.config/nvim/coc-settings.vim
+" source ~/.config/nvim/deoplete.vim
 " source ~/.config/nvim/ncm2.vim
 
 " This is an alternate for useing lightline
 " source ~/.config/nvim/airline.vim
 source ~/.config/nvim/lightline.vim
 
-source ~/.config/nvim/languageClient.vim " This needs to tbe last on the list
+" source ~/.config/nvim/languageClient.vim " This needs to tbe last on the list

@@ -81,3 +81,9 @@ end
 "   au BufWinEnter * setlocal cursorline
 "   au WinLeave * setlocal nocursorline
 " augroup END
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+  let g:vim_markdown_conceal = 0
+  let g:tex_conceal = ""
+  let g:vim_markdown_math = 1
+endif
