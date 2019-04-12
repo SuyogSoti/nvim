@@ -14,7 +14,11 @@ set ignorecase
 set smartcase
 set autoindent
 set splitbelow
+
+" reload the file from the buffer automatically
 set autoread
+au FocusGained,BufEnter * :checktime
+
 set splitright
 " completion
 set noshowmode
@@ -26,9 +30,19 @@ set background=dark
 set termguicolors
 " colorscheme base16-monokai
 " colorscheme base16-onedark
-colorscheme base16-oceanicnext
+" colorscheme base16-oceanicnext
 " colorscheme base16-gruvbox-dark-pale
 " colorscheme base16-material
+colorscheme OceanicNext
+
+" color of non text characters
+hi NonText guifg=bg
+highlight SignColumn ctermfg=NONE gui=NONE cterm=NONE
+
+highlight DiffAdd guifg=#87ff5f ctermfg=119 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+highlight DiffDelete guifg=#df5f5f ctermfg=167 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+highlight DiffChange guifg=#ffff5f ctermfg=227 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+highlight DiffText guifg=#ff5f5f ctermfg=203 guibg=#5f0000 ctermbg=52 gui=bold cterm=bold
 " set cc=80
 set laststatus=2
 set visualbell
