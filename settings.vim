@@ -33,16 +33,17 @@ set termguicolors
 " colorscheme base16-oceanicnext
 " colorscheme base16-gruvbox-dark-pale
 " colorscheme base16-material
+" colorscheme gruvbox
 colorscheme OceanicNext
+" colorscheme new-railscasts
 
 " color of non text characters
 hi NonText guifg=bg
-highlight SignColumn ctermfg=NONE gui=NONE cterm=NONE
 
-highlight DiffAdd guifg=#87ff5f ctermfg=119 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-highlight DiffDelete guifg=#df5f5f ctermfg=167 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-highlight DiffChange guifg=#ffff5f ctermfg=227 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-highlight DiffText guifg=#ff5f5f ctermfg=203 guibg=#5f0000 ctermbg=52 gui=bold cterm=bold
+highlight SignifySignAdd guifg=#87ff5f ctermfg=119 guibg=None ctermbg=None gui=bold cterm=bold
+highlight SignifySignDelete guifg=#df5f5f ctermfg=167 guibg=None ctermbg=None gui=bold cterm=bold
+highlight SignifySignChange guifg=#ffff5f ctermfg=227 guibg=None ctermbg=None gui=bold cterm=bold
+highlight clear SignColumn
 " set cc=80
 set laststatus=2
 set visualbell
