@@ -1,7 +1,6 @@
 " :CocInstall coc-dictionary
 " :CocInstall coc-tag
 " :CocInstall coc-emoji
-" :CocInstall coc-syntax
 " :CocInstall coc-snippets
 " :CocInstall coc-highlight
 " :CocInstall coc-python
@@ -30,8 +29,6 @@ nmap gr <Plug>(coc-rename)
 nmap gl :CocList outline<cr>
 nmap ge :CocList diagnostics<cr>
 
-" TODO: List error
-
 " documentation
 nnoremap <silent>gh :call <SID>show_documentation()<CR>
 function! s:show_documentation()
@@ -50,5 +47,5 @@ endfunction
 
 " Use <C-l> for trigger snippet expand.
 imap <A-i> <Plug>(coc-snippets-expand)
-let g:coc_snippet_next = '<Tab>'
-let g:coc_snippet_prev = '<S-Tab>'
+let g:coc_snippet_next = '<A-i>'
+let g:coc_snippet_prev = '<C-i>'
