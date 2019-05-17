@@ -1,3 +1,4 @@
+" Don't Install coc-syntax as that shite is slow!!!....
 " :CocInstall coc-dictionary
 " :CocInstall coc-tag
 " :CocInstall coc-emoji
@@ -11,13 +12,14 @@
 " :CocInstall coc-html
 " :CocInstall coc-tsserver
 " :CocInstall coc-json
+" :CocInstall coc-pairs
 " Use `[c` and `]c` for navigate diagnostics
 " Some server have issues with backup files, see #649
 set nobackup
 set nowritebackup
 
 " Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
+set updatetime=1000
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
@@ -38,14 +40,3 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-" Snippets
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <C-l> for trigger snippet expand.
-imap <A-i> <Plug>(coc-snippets-expand)
-let g:coc_snippet_next = '<A-i>'
-let g:coc_snippet_prev = '<C-i>'

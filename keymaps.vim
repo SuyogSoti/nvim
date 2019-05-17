@@ -22,11 +22,6 @@ map <A-m> :nohlsearch<CR>
 nnoremap <leader>9 :tabprevious<CR>
 nnoremap <leader>0   :tabnext<CR>
 nnoremap <C-t>     :tabnew<CR>
-map <Leader>mm :wa<bar>15split term://make<space>
-map <Leader>mt :wa<bar>15split term://make<CR>i
-map <Leader>mb :wa<bar>:15split term://make build<CR>i
-map <Leader>st :wa<bar>15split<bar>terminal<CR>
-map <Leader>vt :wa<bar>:80vsplit<bar>terminal<CR>
 inoremap <A-s> <esc>:w<cr>                 " save files
 noremap <A-s> :w<cr>
 noremap <Leader>fs :w<cr>
@@ -57,9 +52,23 @@ nmap <Leader>tq <Plug>window:quickfix:toggle
 nnoremap <silent> <Plug>window:locationlist:toggle :call <SID>LocationListToggle()<CR>
 nmap <Leader>tl <Plug>window:locationlist:toggle
 nnoremap <A-C-i> :Neoformat<cr>
+" Some custom terminal stuff
+map <Leader>mm :wa<bar>15split term://make<space>
+map <Leader>mt :wa<bar>15split term://make<CR>i
+map <Leader>mb :wa<bar>:15split term://make build<CR>i
+map <Leader>mb :wa<bar>:15split term://make build<CR>i
+" Neoterm
+nnoremap <A-0> :Tnext<cr>
+nnoremap <A-9> :Tprevious<cr>
+map <Leader>tt :Ttoggle<CR>
+map <Leader>t1 :1Ttoggle<CR>
+map <Leader>t2 :2Ttoggle<CR>
+map <Leader>t3 :3Ttoggle<CR>
+map <Leader>t4 :4Ttoggle<CR>
+map <Leader>t5 :5Ttoggle<CR>
+map <Leader>t6 :6Ttoggle<CR>
 
 " Open NERDTree in the directory of the current file (or /home if no file is open)
-map <Leader>tt :call NERDTreeToggleInCurDir()<cr>
 nmap <A-n> :call NERDTreeToggleInCurDir()<cr>
 function! NERDTreeToggleInCurDir()
   " If NERDTree is open in the current buffer
@@ -118,4 +127,21 @@ fun! s:LocationListToggle() "{{{
 
 endfunction "}}}
 
+fun! FilterName(name) "{{{
+  return !(a:name =~? '^term://\.//....:/usr/bin/.*$')
+endfunction "}}}
+
+
+fun! s:ListFilteredBuffers()
+  return filter(range(1, bufnr('$')), 'buflisted(v:val) && FilterName(bufname(v:val))')
+endfunction
+
+fun! GetNextBuffer()
+  let bufferList = s:ListFilteredBuffers()
+  let nextIndex = index(bufferList, bufnr('%')) + 1
+  if nextIndex == len(bufferList)
+    let nextIndex = 0
+  endif
+  nextIndex.buffer
+endfunction
 

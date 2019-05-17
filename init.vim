@@ -20,8 +20,8 @@ Plug 'mattn/webapi-vim'
 
 " Snippets
 Plug 'honza/vim-snippets'
-" Plug 'Shougo/neosnippet'
-" Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet'
 
 " " Themes
 Plug 'itchyny/lightline.vim'
@@ -43,7 +43,6 @@ Plug 'tpope/vim-sleuth'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'tpope/vim-eunuch'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'Raimondi/delimitMate'
 Plug 'godlygeek/tabular'
 
 " searching?
@@ -108,6 +107,7 @@ call plug#end()
 source ~/.config/nvim/settings.vim
 source ~/.config/nvim/keymaps.vim
 source ~/.config/nvim/general.vim
+source ~/.config/nvim/snippets.vim
 
 " This is an alternate for the completion manager
 source ~/.config/nvim/coc-settings.vim

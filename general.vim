@@ -45,9 +45,6 @@ let g:signify_sign_change            = '|'
 let g:signify_sign_change_delete     = '|'
 let g:signify_sign_delete_first_line = '|'
 
-" Brackets matching
-let delimitMate_expand_cr = 1
-
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 

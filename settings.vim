@@ -71,6 +71,7 @@ if has('nvim')
   aug END
   " Exit Terminal with a esc
   :tnoremap <Esc> <C-\><C-n>
+  let g:neoterm_default_mod = "vertical"
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 end
 "This is for the cursorline
