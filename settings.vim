@@ -58,8 +58,8 @@ augroup qf
 augroup END
 
 " Where are my python binaries
-let g:python_host_prog = '/usr/bin/python2'
-let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog = 'python2'
+let g:python3_host_prog = 'python3'
 
 
 " If its neovim and not regular vim

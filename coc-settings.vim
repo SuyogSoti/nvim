@@ -13,6 +13,8 @@
 " :CocInstall coc-tsserver
 " :CocInstall coc-json
 " :CocInstall coc-pairs
+" :CocInstall coc-phpls
+" :CocInstall coc-clangd
 " Use `[c` and `]c` for navigate diagnostics
 " Some server have issues with backup files, see #649
 set nobackup
