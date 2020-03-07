@@ -22,7 +22,7 @@ noremap <leader>s :w<cr>
 noremap <Leader>qq :qa!<cr>
 noremap <leader>w :q<cr>
 noremap <C-p> :call fzf#vim#files('', fzf#vim#with_preview('right'))<cr>
-noremap <leader>pp :call fzf#vim#files('', fzf#vim#with_preview('right'))<cr>
+noremap <leader>p :call fzf#vim#files('', fzf#vim#with_preview('right'))<cr>
 noremap <Leader>bb :Buffers<cr>
 noremap <Leader><space> :Commands<cr>
 noremap <Leader>rr :VimuxRunLastCommand<cr>
