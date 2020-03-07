@@ -27,8 +27,8 @@ noremap <Leader>bb :Buffers<cr>
 noremap <Leader><space> :Commands<cr>
 noremap <Leader>rr :VimuxRunLastCommand<cr>
 noremap <Leader>rs :VimuxInterruptRunner<cr>
-noremap <C-\> :vsplit<cr>
-noremap <C--> :split<cr>
+noremap <leader>\ :vsplit<cr>
+noremap <leader>- :split<cr>
 noremap <Leader>bs :BLines<cr>
 noremap <Leader>/ :Rg<space>
 nnoremap <silent> <Plug>window:quickfix:toggle :call <SID>QuickfixToggle()<CR>
