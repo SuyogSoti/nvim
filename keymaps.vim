@@ -11,10 +11,9 @@ noremap <Leader>l <C-W><C-L>
 noremap <Leader>h <C-W><C-H>
 
 map <leader>d :bp<bar>sp<bar>bn<bar>bd<CR>
-map <leader>, :bnext<CR>
-map <leader>. :bprevious<CR>
-map <leader>m :nohlsearch<CR>
-" Tab navigation like Firefox.
+map <leader>. :bnext<CR>
+map <leader>, :bprevious<CR>
+map <leader>e :nohlsearch<CR>
 nnoremap <leader>[ :tabprevious<CR>
 nnoremap <leader>]   :tabnext<CR>
 nnoremap <leader>t     :tabnew<CR>

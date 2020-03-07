@@ -99,26 +99,12 @@ Plug 'benmills/vimux'
 " Terminal stuff
 Plug 'kassio/neoterm'
 
-" For folding
-" Plug 'Konfekt/FastFold'
-
 " Initialize plugin system
 call plug#end()
 
-
-
 source ~/.config/nvim/settings.vim
-source ~/.config/nvim/keymaps.vim
 source ~/.config/nvim/general.vim
-source ~/.config/nvim/snippets.vim
-
-" This is an alternate for the completion manager
+source ~/.config/nvim/keymaps.vim
 source ~/.config/nvim/coc-settings.vim
-" source ~/.config/nvim/deoplete.vim
-" source ~/.config/nvim/ncm2.vim
-
-" This is an alternate for useing lightline
-" source ~/.config/nvim/airline.vim
+source ~/.config/nvim/snippets.vim
 source ~/.config/nvim/lightline.vim
-
-" source ~/.config/nvim/languageClient.vim " This needs to tbe last on the list
