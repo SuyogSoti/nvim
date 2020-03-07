@@ -34,14 +34,14 @@ function LC_maps()
             nnoremap  gd :call LanguageClient#textDocument_definition()<CR>
             nnoremap  gr :call LanguageClient#textDocument_rename()<CR>
             nnoremap  gl :call LanguageClient#textDocument_documentSymbol()<CR>
-            nnoremap <A-C-i> :call LanguageClient#textDocument_formatting()<cr>
+            nnoremap <leader>ff :call LanguageClient#textDocument_formatting()<cr>
 
             let g:LanguageClient_hasSnippetSupport=0
             let g:LanguageClient_diagnosticsList = "Location"
             let g:LanguageClient_useVirtualText=0
             set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
       else
-            nnoremap <A-C-i> :Neoformat<cr>
+            nnoremap <leader>ff :Neoformat<cr>
       endif
 endfunction
 

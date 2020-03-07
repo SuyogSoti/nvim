@@ -5,48 +5,39 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Keybindings!!!
 let mapleader=" "
-noremap <A-l> <C-W><C-L>
-noremap <A-h> <C-W><C-H>
-noremap <A-j> <C-W><C-J>
-noremap <A-k> <C-W><C-K>
+noremap <C-l> <C-W><C-L>
+noremap <C-h> <C-W><C-H>
+noremap <C-j> <C-W><C-J>
+noremap <C-k> <C-W><C-K>
 noremap <Leader>wj <C-W><C-J>
 noremap <Leader>wk <C-W><C-K>
 noremap <Leader>wl <C-W><C-L>
 noremap <Leader>wh <C-W><C-H>
 
-map <A-d> :bp<bar>sp<bar>bn<bar>bd<CR>
-map <A-]> :bnext<CR>
-map <A-[> :bprevious<CR>
-map <A-m> :nohlsearch<CR>
+map <C-k> :bp<bar>sp<bar>bn<bar>bd<CR>
+map <C-.> :bnext<CR>
+map <C-,> :bprevious<CR>
+map <C-m> :nohlsearch<CR>
 " Tab navigation like Firefox.
-nnoremap <leader>9 :tabprevious<CR>
-nnoremap <leader>0   :tabnext<CR>
+nnoremap <leader>, :tabprevious<CR>
+nnoremap <leader>.   :tabnext<CR>
 nnoremap <C-t>     :tabnew<CR>
-inoremap <A-s> <esc>:w<cr>                 " save files
-noremap <A-s> :w<cr>
+noremap <C-s> :w<cr>
 noremap <Leader>fs :w<cr>
-inoremap <A-a> <esc>:wq!<cr>               " save and exit
-noremap <A-a> :wq!<cr>
 noremap <Leader>qq <esc>:qa!<cr>               " quit discarding changes
 noremap <Leader>qq :qa!<cr>
-noremap <A-q> <esc>:qa!<cr>               " quit discarding changes
-noremap <A-q> :qa!<cr>
-inoremap <A-w> <esc>:q<cr>               " quit discarding changes
-noremap <A-w> :q<cr>
-noremap <A-p> :call fzf#vim#files('', fzf#vim#with_preview('right'))<cr>
+noremap <C-q> <esc>:qa!<cr>               " quit discarding changes
+noremap <C-q> :qa!<cr>
+noremap <C-x> :q<cr>
+noremap <C-p> :call fzf#vim#files('', fzf#vim#with_preview('right'))<cr>
 noremap <Leader>bb :Buffers<cr>
-noremap <A-C-p> :Tags<cr>
-noremap <Leader>pt :Tags<cr>
 noremap <Leader><space> :Commands<cr>
 noremap <Leader>sf :BLines<cr>
-noremap <Leader>sb :Lines<cr>
 noremap <Leader>w\ :vsplit<cr>
 noremap <Leader>w- :split<cr>
 noremap <Leader>rr :VimuxRunLastCommand<cr>
 noremap <Leader>rs :VimuxInterruptRunner<cr>
-noremap <A-\> :vsplit<cr>
-noremap <A--> :split<cr>
-noremap <Leader>sp :Ack<space>
+noremap <Leader>sp :Rg<cr>
 nnoremap <silent> <Plug>window:quickfix:toggle :call <SID>QuickfixToggle()<CR>
 nmap <Leader>tq <Plug>window:quickfix:toggle
 nnoremap <silent> <Plug>window:locationlist:toggle :call <SID>LocationListToggle()<CR>
@@ -58,8 +49,8 @@ map <Leader>mt :wa<bar>15split term://make<CR>i
 map <Leader>mb :wa<bar>:15split term://make build<CR>i
 map <Leader>mb :wa<bar>:15split term://make build<CR>i
 " Neoterm
-nnoremap <A-0> :Tnext<cr>
-nnoremap <A-9> :Tprevious<cr>
+nnoremap <C-0> :Tnext<cr>
+nnoremap <C-9> :Tprevious<cr>
 map <Leader>tt :Ttoggle<CR>
 map <Leader>t1 :1Ttoggle<CR>
 map <Leader>t2 :2Ttoggle<CR>
@@ -69,7 +60,7 @@ map <Leader>t5 :5Ttoggle<CR>
 map <Leader>t6 :6Ttoggle<CR>
 
 " Open NERDTree in the directory of the current file (or /home if no file is open)
-nmap <A-n> :call NERDTreeToggleInCurDir()<cr>
+nmap <C-n> :call NERDTreeToggleInCurDir()<cr>
 function! NERDTreeToggleInCurDir()
   " If NERDTree is open in the current buffer
   if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
@@ -84,7 +75,7 @@ function! NERDTreeToggleInCurDir()
 endfunction
 
 " vim easymotion
-map <A-e> <Plug>(easymotion-prefix)
+map <C-e> <Plug>(easymotion-prefix)
 map <leader>e <Plug>(easymotion-prefix)
 
 " vim-comentary mappings
@@ -95,7 +86,7 @@ nmap <leader>cc <Plug>CommentaryLine
 
 
 " emmet
-let g:user_emmet_leader_key='<A-e>'
+let g:user_emmet_leader_key='<C-e>'
 
 
 
