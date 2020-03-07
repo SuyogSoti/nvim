@@ -19,7 +19,7 @@ nnoremap <leader>[ :tabprevious<CR>
 nnoremap <leader>]   :tabnext<CR>
 nnoremap <leader>t     :tabnew<CR>
 noremap <leader>s :w<cr>
-noremap <Leader>qq :qa!<cr>
+noremap <Leader>q :qa!<cr>
 noremap <leader>w :q<cr>
 noremap <C-p> :call fzf#vim#files('', fzf#vim#with_preview('right'))<cr>
 noremap <leader>p :call fzf#vim#files('', fzf#vim#with_preview('right'))<cr>
