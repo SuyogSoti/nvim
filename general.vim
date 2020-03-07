@@ -15,10 +15,10 @@ let g:python_highlight_space_errors = 0
 
 
 " " fold functions
-set foldmethod=syntax
-set foldnestmax=1
-let g:php_folding = 1
-let g:javaScript_fold = 1
+" set foldmethod=syntax
+" set foldnestmax=1
+" let g:php_folding = 1
+" let g:javaScript_fold = 1
 " let g:markdown_folding = 1
 " let g:tex_fold_enabled = 1
 " let g:vimsyn_folding = 'af'

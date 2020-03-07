@@ -100,7 +100,7 @@ Plug 'benmills/vimux'
 Plug 'kassio/neoterm'
 
 " For folding
-Plug 'Konfekt/FastFold'
+" Plug 'Konfekt/FastFold'
 
 " Initialize plugin system
 call plug#end()
