@@ -1,6 +1,6 @@
 " This will be editor look and feel
 " set relativenumber
-:set number
+" :set number
 "Editor Functioning
 set completeopt-=preview " disable preview window at the bottom of the screen
 set clipboard=unnamedplus
