@@ -51,20 +51,7 @@ Plug 'wincent/ferret'
 
 
 " Autocompletion
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-
-" Plug 'Shougo/echodoc.vim'
-" Plug 'autozimu/LanguageClient-neovim', {
-"       \ 'branch': 'next',
-"       \ 'do': 'bash install.sh',
-"       \ }
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" " has weird cursor behavior
-" Plug 'ncm2/ncm2'
-" " ncm2 requires nvim-yarp
-" Plug 'roxma/nvim-yarp'
-" Plug 'ncm2/ncm2-path'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Git Stuff
 Plug 'mattn/gist-vim'

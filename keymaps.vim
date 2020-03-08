@@ -13,7 +13,7 @@ noremap <Leader>h <C-W><C-H>
 map <leader>d :bp<bar>sp<bar>bn<bar>bd<CR>
 map <leader>. :bnext<CR>
 map <leader>, :bprevious<CR>
-map <leader>e :nohlsearch<CR>
+map <leader>; :nohlsearch<CR>
 nnoremap <leader>[ :tabprevious<CR>
 nnoremap <leader>]   :tabnext<CR>
 nnoremap <leader>t     :tabnew<CR>
@@ -67,6 +67,7 @@ function! NERDTreeToggleInCurDir()
 endfunction
 
 " vim easymotion
+map <leader>e <Plug>(easymotion-prefix)
 map <C-e> <Plug>(easymotion-prefix)
 
 " vim-comentary mappings
