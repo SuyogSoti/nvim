@@ -2,7 +2,6 @@
 " :CocInstall coc-dictionary
 " :CocInstall coc-tag
 " :CocInstall coc-emoji
-" :CocInstall coc-snippets
 " :CocInstall coc-highlight
 " :CocInstall coc-python
 " :CocInstall coc-rls
@@ -42,3 +41,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+"
+" coc extensions
+let g:coc_global_extensions = ['coc-dictionary', 'coc-tag', 'coc-emoji', 'coc-highlight', 'coc-python', 'coc-rls', 'coc-gocode', 'coc-solargraph', 'coc-java', 'coc-html', 'coc-tsserver', 'coc-json', 'coc-pairs', 'coc-phpls', 'coc-clangd']

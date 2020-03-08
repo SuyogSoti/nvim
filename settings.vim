@@ -57,11 +57,6 @@ augroup qf
   autocmd FileType qf set nobuflisted
 augroup END
 
-" Where are my python binaries
-let g:python_host_prog = 'python2'
-let g:python3_host_prog = 'python3'
-
-
 " If its neovim and not regular vim
 if has('nvim')
   set inccommand=split
