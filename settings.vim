@@ -70,14 +70,14 @@ if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 end
 
-" This is for the cursorline
- augroup CursorLine
-   au!
-   au VimEnter * setlocal cursorline
-   au WinEnter * setlocal cursorline
-   au BufWinEnter * setlocal cursorline
-   au WinLeave * setlocal nocursorline
- augroup END
+" " This is for the cursorline
+"  augroup CursorLine
+"    au!
+"    au VimEnter * setlocal cursorline
+"    au WinEnter * setlocal cursorline
+"    au BufWinEnter * setlocal cursorline
+"    au WinLeave * setlocal nocursorline
+"  augroup END
 
 if has('conceal')
   set conceallevel=2 concealcursor=niv
