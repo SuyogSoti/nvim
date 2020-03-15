@@ -85,3 +85,7 @@ if has('conceal')
   let g:tex_conceal = 0
   let g:vim_markdown_math = 0
 endif
+
+" Border style (rounded / sharp / horizontal)
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6} }
+let $FZF_DEFAULT_OPTS .= '--layout=reverse'
