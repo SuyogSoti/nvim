@@ -24,8 +24,8 @@ noremap <C-p> :call fzf#vim#files('', fzf#vim#with_preview('right'))<cr>
 noremap <leader>p :call fzf#vim#files('', fzf#vim#with_preview('right'))<cr>
 noremap <Leader>bb :Buffers<cr>
 noremap <Leader><space> :Commands<cr>
-noremap <Leader>rr :VimuxRunLastCommand<cr>
-noremap <Leader>rs :VimuxInterruptRunner<cr>
+noremap <Leader>rr :T"!!"<cr>
+noremap <Leader>rs :Tkill<cr>
 noremap <leader>\ :vsplit<cr>
 noremap <leader>- :split<cr>
 noremap <Leader>bs :BLines<cr>
