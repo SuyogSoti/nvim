@@ -80,10 +80,7 @@ end
 "  augroup END
 
 if has('conceal')
-  set conceallevel=2 concealcursor=niv
-  let g:vim_markdown_conceal = 0
-  let g:tex_conceal = 0
-  let g:vim_markdown_math = 0
+  set conceallevel=0
 endif
 
 " Border style (rounded / sharp / horizontal)
