@@ -27,10 +27,10 @@ let g:lightline.subseparator = {
       \}
 
 
-" set showtabline=2  " Show tabline
-" let g:lightline#bufferline#shorten_path = 1
-" let g:lightline#bufferline#unnamed      = '[No Name]'
-" let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+set showtabline=2  " Show tabline
+let g:lightline#bufferline#shorten_path = 1
+let g:lightline#bufferline#unnamed      = '[No Name]'
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
 
