@@ -29,13 +29,12 @@ set mouse+=a
 set background=dark
 set termguicolors
 " colorscheme base16-monokai
-" colorscheme base16-onedark
+colorscheme base16-onedark
 " colorscheme base16-oceanicnext
 " colorscheme base16-gruvbox-dark-pale
 " colorscheme base16-material
-" colorscheme gruvbox
-colorscheme OceanicNext
 " colorscheme new-railscasts
+" colorscheme onedark
 
 " color of non text characters
 hi NonText guifg=bg
@@ -44,6 +43,7 @@ highlight SignifySignAdd guifg=#87ff5f ctermfg=119 guibg=None ctermbg=None gui=b
 highlight SignifySignDelete guifg=#df5f5f ctermfg=167 guibg=None ctermbg=None gui=bold cterm=bold
 highlight SignifySignChange guifg=#ffff5f ctermfg=227 guibg=None ctermbg=None gui=bold cterm=bold
 highlight clear SignColumn
+hi VertSplit guibg=bg guifg=bg
 " set cc=80
 set laststatus=2
 set visualbell
