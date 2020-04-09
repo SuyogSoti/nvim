@@ -57,6 +57,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/gist-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
+Plug 'rhysd/conflict-marker.vim'
 
 " Languages
 " HTML
