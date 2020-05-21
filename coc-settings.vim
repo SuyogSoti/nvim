@@ -31,6 +31,7 @@ nmap gi <Plug>(coc-implementation)
 nmap gr <Plug>(coc-rename)
 nmap gl :CocList outline<cr>
 nmap ge :CocList diagnostics<cr>
+nmap ga :CocAction<cr>
 
 " documentation
 nnoremap <silent>gh :call <SID>show_documentation()<CR>
