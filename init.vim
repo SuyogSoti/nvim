@@ -24,12 +24,8 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet'
 
 " " Themes
-" Plug 'itchyny/lightline.vim'
-Plug 'mgee/lightline-bufferline'
+Plug 'hoob3rt/lualine.nvim'
 Plug 'chriskempson/base16-vim'
-" Plug 'flazz/vim-colorschemes'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 
 " Overall
 Plug 'tpope/vim-commentary'
@@ -38,7 +34,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'sbdchd/neoformat'
-Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-sleuth'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'tpope/vim-eunuch'
@@ -50,9 +45,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'wincent/ferret'
 
 
-" Autocompletion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " Git Stuff
 Plug 'mattn/gist-vim'
 Plug 'tpope/vim-fugitive'
@@ -63,20 +55,9 @@ Plug 'rhysd/conflict-marker.vim'
 " HTML
 Plug 'mattn/emmet-vim'
 
-" Python
-Plug 'vim-python/python-syntax'
-
-" ruby/ruby on rails
-Plug 'tpope/vim-rails'
-
-" Coffee Script
-Plug 'kchmck/vim-coffee-script'
-
-"R
-Plug 'jalvesaq/Nvim-R'
-
 " File navigation
-Plug 'scrooloose/nerdtree'
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
@@ -87,12 +68,31 @@ Plug 'benmills/vimux'
 " Terminal stuff
 Plug 'kassio/neoterm'
 
+" Neovim 0.5 stuff
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'neovim/nvim-lspconfig'
+Plug 'gfanto/fzf-lsp.nvim', {'branch': 'main'}
+Plug 'nvim-lua/completion-nvim'
+Plug 'windwp/nvim-autopairs'
+Plug 'folke/trouble.nvim', {'branch': 'main'}
+Plug 'ojroques/vim-oscyank', {'branch': 'main'}
+
 " Initialize plugin system
 call plug#end()
 
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | OSCYankReg " | endif
+
+"=================================================================================
+"                       Other Files
+"=================================================================================
 source ~/.config/nvim/settings.vim
 source ~/.config/nvim/general.vim
 source ~/.config/nvim/keymaps.vim
-source ~/.config/nvim/coc-settings.vim
 source ~/.config/nvim/snippets.vim
-source ~/.config/nvim/lightline.vim
+source ~/.config/nvim/neovim_five.vim
+luafile ~/.config/nvim/filetree.lua
+if filereadable(expand(("~/.config/nvim/google.vim")))
+  source ~/.config/nvim/google.vim
+endif

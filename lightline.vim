@@ -6,7 +6,7 @@ let g:lightline = {
       \   'colorscheme': 'Tomorrow_Night_Eighties',
       \   'active': {
       \     'left':[ [ 'mode', 'paste' ],
-      \              [ 'gitbranch', 'readonly', 'filename', 'modified' ],
+      \              ['readonly', 'relativepath', 'modified' ],
       \              [ 'cocstatus', 'readonly','currentfunction']
       \     ]
       \   },
@@ -27,7 +27,7 @@ let g:lightline.subseparator = {
       \}
 
 
-set showtabline=2  " Show tabline
+" set showtabline=2  " Show tabline
 let g:lightline#bufferline#shorten_path = 1
 let g:lightline#bufferline#unnamed      = '[No Name]'
 let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}

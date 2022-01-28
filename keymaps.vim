@@ -5,6 +5,8 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Keybindings!!!
 let mapleader=" "
+nnoremap <C-U> 5<C-y>
+nnoremap <C-D> 5<C-e>
 noremap <Leader>j <C-W><C-J>
 noremap <Leader>k <C-W><C-K>
 noremap <Leader>l <C-W><C-L>
@@ -16,12 +18,12 @@ map <leader>[ :bprevious<CR>
 map <leader>; :nohlsearch<CR>
 nnoremap <leader>, :tabprevious<CR>
 nnoremap <leader>.   :tabnext<CR>
-nnoremap <leader>t     :tabnew<CR>
 noremap <leader>s :w<cr>
 noremap <Leader>q :qa!<cr>
 noremap <leader>w :q<cr>
-noremap <C-p> :call fzf#vim#files('', fzf#vim#with_preview('right'))<cr>
 noremap <leader>p :call fzf#vim#files('', fzf#vim#with_preview('right'))<cr>
+command! -bang -nargs=? -complete=dir Buffers
+  \ call fzf#vim#buffers(<q-args>, &columns > 300 ? fzf#vim#with_preview() : {}, <bang>0)
 noremap <Leader>bb :Buffers<cr>
 noremap <Leader><space> :Commands<cr>
 noremap <Leader>rr :VimuxRunLastCommand<cr>
@@ -34,15 +36,13 @@ nnoremap <silent> <Plug>window:quickfix:toggle :call <SID>QuickfixToggle()<CR>
 nmap <Leader>tq <Plug>window:quickfix:toggle
 nnoremap <silent> <Plug>window:locationlist:toggle :call <SID>LocationListToggle()<CR>
 nmap <Leader>tl <Plug>window:locationlist:toggle
-nnoremap <leader>ff :Neoformat<cr>
-" Some custom terminal stuff
-map <Leader>mm :wa<bar>15split term://make<space>
-map <Leader>mt :wa<bar>15split term://make<CR>i
-map <Leader>mb :wa<bar>:15split term://make build<CR>i
-map <Leader>mb :wa<bar>:15split term://make build<CR>i
 " Neoterm
 nnoremap <leader>0 :Tnext<cr>
 nnoremap <leader>9 :Tprevious<cr>
+nnoremap <leader>tr :T !!<cr>
+nnoremap <leader>ts :Tkill<cr>
+nnoremap <leader>te :T exit<cr>
+nnoremap <leader>tc :Tclear<cr>
 map <Leader>tt :Ttoggle<CR>
 map <Leader>t1 :1Ttoggle<CR>
 map <Leader>t2 :2Ttoggle<CR>
@@ -51,20 +51,6 @@ map <Leader>t4 :4Ttoggle<CR>
 map <Leader>t5 :5Ttoggle<CR>
 map <Leader>t6 :6Ttoggle<CR>
 
-" Open NERDTree in the directory of the current file (or /home if no file is open)
-nmap <leader>n :call NERDTreeToggleInCurDir()<cr>
-function! NERDTreeToggleInCurDir()
-  " If NERDTree is open in the current buffer
-  if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
-    exe ":NERDTreeClose"
-  else
-    if bufname('%') == ''
-      exe ":NERDTreeToggle"
-    else
-      exe ":NERDTreeFind"
-    endif
-  endif
-endfunction
 
 " vim easymotion
 map <leader>e <Plug>(easymotion-prefix)
@@ -78,8 +64,7 @@ nmap <leader>cc <Plug>CommentaryLine
 
 
 " emmet
-let g:user_emmet_leader_key='<C-e>'
-
+let g:user_emmet_leader_key='<C-,>'
 
 
 " toggle quicklist and stuff

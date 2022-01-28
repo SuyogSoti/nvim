@@ -2,8 +2,10 @@
 " set relativenumber
 " :set number
 "Editor Functioning
-set completeopt-=preview " disable preview window at the bottom of the screen
-set clipboard=unnamedplus
+" set completeopt-=preview " disable preview window at the bottom of the screen
+" set completeopt=menuone,noselect
+set completeopt=menuone,noinsert,noselect
+" set clipboard=unnamedplus
 filetype plugin indent on
 set nocompatible
 set expandtab
@@ -28,12 +30,13 @@ set hidden
 set mouse+=a
 set background=dark
 set termguicolors
+let g:one_allow_italics = 1
 " colorscheme base16-monokai
-colorscheme base16-onedark
+" colorscheme base16-onedark
 " colorscheme base16-oceanicnext
-" colorscheme base16-gruvbox-dark-pale
+colorscheme base16-gruvbox-dark-pale
 " colorscheme base16-material
-" colorscheme new-railscasts
+" colorscheme base16-railscasts
 " colorscheme onedark
 
 " color of non text characters
@@ -43,7 +46,8 @@ highlight SignifySignAdd guifg=#87ff5f ctermfg=119 guibg=None ctermbg=None gui=b
 highlight SignifySignDelete guifg=#df5f5f ctermfg=167 guibg=None ctermbg=None gui=bold cterm=bold
 highlight SignifySignChange guifg=#ffff5f ctermfg=227 guibg=None ctermbg=None gui=bold cterm=bold
 highlight clear SignColumn
-hi VertSplit guibg=bg guifg=bg
+hi VertSplit ctermbg=NONE guibg=NONE
+set fillchars+=vert:│
 " set cc=80
 set laststatus=2
 set visualbell
@@ -70,19 +74,16 @@ if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 end
 
-" " This is for the cursorline
-"  augroup CursorLine
-"    au!
-"    au VimEnter * setlocal cursorline
-"    au WinEnter * setlocal cursorline
-"    au BufWinEnter * setlocal cursorline
-"    au WinLeave * setlocal nocursorline
-"  augroup END
+" This is for the cursorline
+ augroup CursorLine
+   au!
+   au VimEnter * setlocal cursorline
+   au WinEnter * setlocal cursorline
+   au BufWinEnter * setlocal cursorline
+   au WinLeave * setlocal nocursorline
+ augroup END
 
 if has('conceal')
   set conceallevel=0
 endif
 
-" Border style (rounded / sharp / horizontal)
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6} }
-let $FZF_DEFAULT_OPTS .= '--layout=reverse'

@@ -44,4 +44,4 @@ function! s:show_documentation()
 endfunction
 "
 " coc extensions
-let g:coc_global_extensions = ['coc-dictionary', 'coc-tag', 'coc-emoji', 'coc-highlight', 'coc-python', 'coc-rls', 'coc-gocode', 'coc-solargraph', 'coc-java', 'coc-html', 'coc-tsserver', 'coc-json', 'coc-pairs', 'coc-phpls', 'coc-clangd']
+let g:coc_global_extensions = ['coc-dictionary', 'coc-emoji', 'coc-highlight', 'coc-pairs']
