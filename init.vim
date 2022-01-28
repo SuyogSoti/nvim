@@ -24,7 +24,7 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/neosnippet'
 
 " " Themes
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 Plug 'mgee/lightline-bufferline'
 Plug 'chriskempson/base16-vim'
 " Plug 'flazz/vim-colorschemes'
