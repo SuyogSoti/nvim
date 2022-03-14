@@ -1,4 +1,4 @@
 require('plugins')
 
-vim.cmd("source settings.vim")
-vim.cmd("source keymaps.vim")
+vim.cmd("source ~/.config/nvim/settings.vim")
+vim.cmd("source ~/.config/nvim/keymaps.vim")
