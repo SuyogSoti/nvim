@@ -1,4 +1,5 @@
 autoload/*
 plugged/*
+plugin/**
 google.vim
 google.lua
