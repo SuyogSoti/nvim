@@ -16,6 +16,7 @@ set ignorecase
 set smartcase
 set autoindent
 set splitbelow
+set pumheight=10
 
 " reload the file from the buffer automatically
 set autoread
@@ -51,6 +52,12 @@ set fillchars+=vert:│
 " set cc=80
 set laststatus=2
 set visualbell
+
+" python
+let g:python_highlight_all = 1
+let g:python_highlight_space_errors = 0
+
+
 " Spell check in the markdown files
 autocmd FileType markdown,tex setlocal spell
 autocmd FileType ruby set shiftwidth=2
@@ -62,17 +69,15 @@ augroup qf
 augroup END
 
 " If its neovim and not regular vim
-if has('nvim')
-  set inccommand=split
-  aug fzf_setup
-    au!
-    au TermOpen term://*FZF tnoremap <silent> <buffer><nowait> <esc> <c-c>
-  aug END
-  " Exit Terminal with a esc
-  :tnoremap <Esc> <C-\><C-n>
-  let g:neoterm_default_mod = "vertical"
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-end
+set inccommand=split
+aug fzf_setup
+  au!
+  au TermOpen term://*FZF tnoremap <silent> <buffer><nowait> <esc> <c-c>
+aug END
+" Exit Terminal with a esc
+:tnoremap <Esc> <C-\><C-n>
+let g:neoterm_default_mod = "vertical"
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " This is for the cursorline
  augroup CursorLine
@@ -86,4 +91,18 @@ end
 if has('conceal')
   set conceallevel=0
 endif
+
+
+" vim-signify
+let g:signify_vcs_list = [ 'git' ]
+set signcolumn=yes
+set updatetime=100
+let g:signify_sign_add               = '|'
+let g:signify_sign_delete            = '|'
+let g:signify_sign_change            = '|'
+let g:signify_sign_change_delete     = '|'
+let g:signify_sign_delete_first_line = '|'
+let g:signify_priority = 1
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 

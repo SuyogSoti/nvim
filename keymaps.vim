@@ -62,6 +62,11 @@ xmap <leader>c <Plug>Commentary
 omap <leader>c <Plug>Commentary
 nmap <leader>cc <Plug>CommentaryLine
 
+" filetree
+noremap <Leader>n :lua require("filetree").MyNvimTreeToggle()<CR>
+
+" Trouble toggle
+noremap gl :TroubleToggle<CR>
 
 " emmet
 let g:user_emmet_leader_key='<C-,>'
