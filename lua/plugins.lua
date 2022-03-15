@@ -28,6 +28,7 @@ return require('packer').startup(function()
       }
     end,
   }
+
   use 'chriskempson/base16-vim'
 
   -- extends % to more language based features
@@ -60,8 +61,14 @@ return require('packer').startup(function()
   use {'lervag/vimtex', ft={'tex'}}
 
   -- navigation
-  use { 'kyazdani42/nvim-tree.lua', requires={'kyazdani42/nvim-web-devicons', opt=true}, config=function() require("filetree") end}
-  use {'junegunn/fzf.vim', requires={'junegunn/fzf', run="~/.fzf/install --all"}}
+  use { 'kyazdani42/nvim-tree.lua', requires={'kyazdani42/nvim-web-devicons', opt=true}, config=function() 
+    require'nvim-tree'.setup {
+      view = {
+        width = 50,
+      },
+    }
+  end}
+  use {'junegunn/fzf.vim', requires={'junegunn/fzf'}}
 
   -- Tmux stuff
   use 'benmills/vimux'
@@ -90,7 +97,6 @@ return require('packer').startup(function()
   use {
     'williamboman/nvim-lsp-installer',
     requires={'neovim/nvim-lspconfig'},
-    config=function() require("lsp") end,
     run=function()  
       local lsp_installer = require("nvim-lsp-installer")
       lsp_installer.install("clangd")
@@ -109,8 +115,13 @@ return require('packer').startup(function()
     end,
   }
   use {'gfanto/fzf-lsp.nvim', branch='main'}
-  use {'folke/trouble.nvim', branch='main', config=function() require("trouble").setup {} end}
-  use {'L3MON4D3/LuaSnip', 'rafamadriz/friendly-snippets', 'saadparwaiz1/cmp_luasnip', 'hrsh7th/nvim-cmp'}
+  use {'folke/trouble.nvim', branch='main', config=function() require("trouble").setup{} end}
+  use {'L3MON4D3/LuaSnip', 
+  'rafamadriz/friendly-snippets', 
+  'saadparwaiz1/cmp_luasnip', 
+  'hrsh7th/nvim-cmp', 
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-path'}
 
   -- copy paste that works throught ssh
   use {'ojroques/vim-oscyank', branch='main'}

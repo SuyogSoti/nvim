@@ -8,10 +8,6 @@ set completeopt=menuone,noinsert,noselect
 " set clipboard=unnamedplus
 filetype plugin indent on
 set nocompatible
-set expandtab
-set shiftwidth=4
-set tabstop=4
-set smarttab
 set ignorecase
 set smartcase
 set autoindent
