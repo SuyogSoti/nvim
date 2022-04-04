@@ -46,7 +46,7 @@ EOF
 
 
 if luaeval("inCitc()")
-  command! -bang NewFiles call fzf#run(fzf#wrap({ 'source': 'remote fdfind . java/com/google/api javatests/com/google/api apiserving google/api', 'sink': 'e'}, <bang>0))
-  command! -bang NewFiles call fzf#run(fzf#wrap({ 'source': 'remote fdfind . java/com/google/api javatests/com/google/api apiserving google/api', 'sink': 'e'}, <bang>0))
+  command! -bang NewFiles call fzf#run(fzf#wrap({ 'source': 'pfind java/com/google/api javatests/com/google/api apiserving google/api', 'sink': 'e'}, <bang>0))
+  command! -bang NewFiles call fzf#run(fzf#wrap({ 'source': 'pfind java/com/google/api javatests/com/google/api apiserving google/api', 'sink': 'e'}, <bang>0))
   noremap <leader>p :NewFiles<cr>
 endif
