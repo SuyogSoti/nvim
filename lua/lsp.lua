@@ -1,3 +1,5 @@
+require("helper_funcs")
+
 -- Use an on_attach function to only map the following keys 
 -- after the language server attaches to the current buffer
 local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -21,7 +23,9 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
   virtual_text = false
 })
 
-require("nvim-lsp-installer").on_server_ready(function(server)
-  server:setup({})
-end)
+if not inCitc() then
+  require("nvim-lsp-installer").on_server_ready(function(server)
+    server:setup({})
+  end)
+end
 
