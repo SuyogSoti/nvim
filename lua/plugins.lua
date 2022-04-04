@@ -52,6 +52,7 @@ return require('packer').startup(function()
   -- Git Stuff
   use 'tpope/vim-fugitive'
   use 'rhysd/conflict-marker.vim'
+  use 'mhinz/vim-signify'
 
   -- html
   use 'mattn/emmet-vim'

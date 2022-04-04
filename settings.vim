@@ -5,7 +5,7 @@
 " set completeopt-=preview " disable preview window at the bottom of the screen
 " set completeopt=menuone,noselect
 set completeopt=menuone,noinsert,noselect
-" set clipboard=unnamedplus
+set clipboard=unnamedplus
 filetype plugin indent on
 set nocompatible
 set ignorecase
@@ -101,4 +101,8 @@ let g:signify_sign_delete_first_line = '|'
 let g:signify_priority = 1
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
+
+" filetype overwrites
+autocmd BufNewFile,BufRead *.sdl set ft=sql
 
