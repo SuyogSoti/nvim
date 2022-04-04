@@ -62,6 +62,7 @@ return require('packer').startup(function()
 
   -- navigation
   use { 'kyazdani42/nvim-tree.lua', requires={'kyazdani42/nvim-web-devicons', opt=true}, config=function() 
+    vim.cmd("set shell=/bin/bash")
     require'nvim-tree'.setup {
       view = {
         width = 50,
