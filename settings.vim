@@ -105,4 +105,5 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " filetype overwrites
 autocmd BufNewFile,BufRead *.sdl set ft=sql
+autocmd BufNewFile,BufRead *.pi set ft=python
 

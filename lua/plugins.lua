@@ -10,25 +10,11 @@ return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- Theme and looks
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config=function() 
-      require('lualine').setup{
-        sections = {
-          lualine_c = {
-            {
-              'filename',
-              file_status = true, -- displays file status (readonly status, modified status)
-              path = 1 -- 0 = just filename, 1 = relative path, 2 = absolute path
-            }
-          }
-        }
-      }
-    end,
-  }
-
+  use {'ojroques/nvim-hardline', config=function ()
+    require('hardline').setup {
+      theme = 'gruvbox'
+    }
+  end}
   use 'chriskempson/base16-vim'
 
   -- extends % to more language based features
