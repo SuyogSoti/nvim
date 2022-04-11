@@ -90,9 +90,10 @@ endif
 
 
 " vim-signify
-let g:signify_vcs_list = [ 'git' ]
+let g:signify_vcs_list = ['hg', 'git']
 set signcolumn=yes
 set updatetime=100
+let g:cursorhold_updatetime = 100
 let g:signify_sign_add               = '|'
 let g:signify_sign_delete            = '|'
 let g:signify_sign_change            = '|'

@@ -9,6 +9,8 @@ end
 return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+  -- fixes a cursor hold autocmd bug in neovim - https://github.com/neovim/neovim/issues/12587
+  use "antoinemadec/FixCursorHold.nvim"
 
   -- Theme and looks
   use {
@@ -30,8 +32,6 @@ return require('packer').startup(function()
   }
   use 'chriskempson/base16-vim'
 
-  -- extends % to more language based features
-  use {'andymass/vim-matchup', event = 'VimEnter'}
   use {'windwp/nvim-autopairs', config=function() require('nvim-autopairs').setup() end}
   use 'tpope/vim-commentary'
   -- Note: vim sound make it not change cursor when d is pressed
