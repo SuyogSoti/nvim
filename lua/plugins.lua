@@ -80,7 +80,7 @@ return require('packer').startup(function()
   -- treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config=function() 
     require'nvim-treesitter.configs'.setup {
-      ensure_installed = "maintained", -- one of "all", "maintained" (
+      ensure_installed = "all", -- one of "all", "maintained" (
       ignore_install = {}, -- List of parsers to ignore installing
       highlight = {
         enable = true,              -- false will disable the whole extension
