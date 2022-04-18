@@ -32,6 +32,7 @@ return require('packer').startup(function()
   }
   use 'chriskempson/base16-vim'
 
+  use {'andymass/vim-matchup', event = 'VimEnter'}
   use {'windwp/nvim-autopairs', config=function() require('nvim-autopairs').setup() end}
   use 'tpope/vim-commentary'
   -- Note: vim sound make it not change cursor when d is pressed
@@ -61,7 +62,7 @@ return require('packer').startup(function()
 
   -- navigation
   use { 'kyazdani42/nvim-tree.lua', requires={'kyazdani42/nvim-web-devicons', opt=true}, config=function() 
-    vim.cmd("set shell=/bin/bash")
+    vim.cmd("set shell=/usr/local/bin/fish")
     require'nvim-tree'.setup {
       view = {
         width = 50,
