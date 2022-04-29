@@ -30,15 +30,6 @@ nvim_lsp.ciderlsp.setup{
       -- go-to-definition.
       vim.api.nvim_buf_set_option(bufnr, "tagfunc", "v:lua.vim.lsp.tagfunc")
     end
-
-    vim.api.nvim_command("augroup LSP")
-    vim.api.nvim_command("autocmd!")
-    if client.resolved_capabilities.document_highlight then
-      vim.api.nvim_command("autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()")
-      vim.api.nvim_command("autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()")
-      vim.api.nvim_command("autocmd CursorMoved <buffer> lua vim.lsp.util.buf_clear_references()")
-    end
-    vim.api.nvim_command("augroup END")
   end
 }
 end
@@ -46,7 +37,7 @@ EOF
 
 
 if luaeval("inCitc()")
-  command! -bang NewFiles call fzf#run(fzf#wrap({ 'source': 'pfind java/com/google/api javatests/com/google/api apiserving google/api', 'sink': 'e'}, <bang>0))
-  command! -bang NewFiles call fzf#run(fzf#wrap({ 'source': 'pfind java/com/google/api javatests/com/google/api apiserving google/api', 'sink': 'e'}, <bang>0))
+  command! -bang NewFiles call fzf#run(fzf#wrap({ 'source': 'pfind -type f java/com/google/api javatests/com/google/api apiserving google/api', 'sink': 'e'}, <bang>0))
+  command! -bang NewFiles call fzf#run(fzf#wrap({ 'source': 'pfind -type f java/com/google/api javatests/com/google/api apiserving google/api', 'sink': 'e'}, <bang>0))
   noremap <leader>p :NewFiles<cr>
 endif

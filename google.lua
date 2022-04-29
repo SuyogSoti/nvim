@@ -118,4 +118,18 @@ function ToCritique()
 end
 
 -- Key maps
-vim.api.nvim_set_keymap('n', '<leader>ma', '<cmd>lua ToCritique()<CR>', {noremap = true})
+vim.keymap.set('n', '<leader>ma', ToCritique)
+vim.keymap.set("n", "<leader>p", function ()
+  local search_dirs = {
+    "java/com/google/api",
+    "javatests/com/google/api",
+    "apiserving",
+    "google/api"
+  }
+  require("telescope.builtin").find_files{
+    find_command = {"pfind", "-type", "f", unpack(search_dirs)},
+    follow = false,
+    hidden = false,
+    no_ignore = false,
+  }
+end)

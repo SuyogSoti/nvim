@@ -13,6 +13,7 @@ set smartcase
 set autoindent
 set splitbelow
 set pumheight=10
+set tabstop=4
 
 " reload the file from the buffer automatically
 set autoread
@@ -30,8 +31,8 @@ set termguicolors
 let g:one_allow_italics = 1
 " colorscheme base16-monokai
 " colorscheme base16-onedark
-" colorscheme base16-oceanicnext
-colorscheme base16-gruvbox-dark-pale
+colorscheme base16-oceanicnext
+" colorscheme base16-gruvbox-dark-pale
 " colorscheme base16-material
 " colorscheme base16-railscasts
 " colorscheme onedark
@@ -107,4 +108,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " filetype overwrites
 autocmd BufNewFile,BufRead *.sdl set ft=sql
 autocmd BufNewFile,BufRead *.pi set ft=python
+let g:do_filetype_lua = 1
+let g:did_load_filetypes = 0
 

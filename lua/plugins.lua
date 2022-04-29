@@ -7,6 +7,9 @@ end
 
 
 return require('packer').startup(function()
+  use {'lewis6991/impatient.nvim', config=function ()
+    require("impatient")
+  end}
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   -- fixes a cursor hold autocmd bug in neovim - https://github.com/neovim/neovim/issues/12587
@@ -16,18 +19,8 @@ return require('packer').startup(function()
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config=function() 
-      require('lualine').setup{
-        sections = {
-          lualine_c = {
-            {
-              'filename',
-              file_status = true, -- displays file status (readonly status, modified status)
-              path = 1 -- 0 = just filename, 1 = relative path, 2 = absolute path
-            }
-          }
-        }
-      }
+    config=function()
+      require('lualine').setup()
     end,
   }
   use 'chriskempson/base16-vim'
@@ -70,6 +63,21 @@ return require('packer').startup(function()
     }
   end}
   use {'junegunn/fzf.vim', requires={'junegunn/fzf'}}
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires =  {'nvim-lua/plenary.nvim'},
+    config = function ()
+      require('telescope').setup{
+        defaults = {
+          mappings = {
+            i = {
+              ["<esc>"] = require("telescope.actions").close
+            },
+          },
+        }
+      }
+    end
+  }
 
   -- Tmux stuff
   use 'benmills/vimux'
@@ -117,10 +125,10 @@ return require('packer').startup(function()
   }
   use {'gfanto/fzf-lsp.nvim', branch='main'}
   use {'folke/trouble.nvim', branch='main', config=function() require("trouble").setup{} end}
-  use {'L3MON4D3/LuaSnip', 
-  'rafamadriz/friendly-snippets', 
-  'saadparwaiz1/cmp_luasnip', 
-  'hrsh7th/nvim-cmp', 
+  use {'L3MON4D3/LuaSnip',
+  'rafamadriz/friendly-snippets',
+  'saadparwaiz1/cmp_luasnip',
+  'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-path'}
 
