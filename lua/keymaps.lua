@@ -1,13 +1,4 @@
 vim.g.mapleader = ' '
-vim.keymap.set("n", "<leader>tq", function()
-  for idx=1,vim.fn.winnr("$") do
-    if vim.fn.getwinvar(idx, '&syntax') == "qf" then
-      vim.cmd("cclose")
-      return
-    end
-  end
-  vim.cmd("copen")
-end)
 
 -- Tab completion
 vim.keymap.set('i', '<Tab>', function()
@@ -28,7 +19,7 @@ local keyToCommands = {
     bs = require("telescope.builtin").current_buffer_fuzzy_find,
     fh = require("telescope.builtin").help_tags,
     ["/"] = require("telescope.builtin").live_grep,
-    tl = require("telescope.builtin").quickfix,
+    tq = require("telescope.builtin").quickfix,
     -- buffers and tabs
     ["]"] = "<cmd>bnext<cr>",
     ["["] = "<cmd>bprevious<cr>",
@@ -56,6 +47,8 @@ local keyToCommands = {
     tc = "<cmd>Tclear<cr>",
     -- NvimTree
     n = "<cmd>NvimTreeFindFileToggle<cr>",
+    -- TroubleVim
+    el = "<cmd>TroubleToggle<cr>",
   },
 }
 for topKey, val in pairs(keyToCommands) do

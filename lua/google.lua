@@ -117,19 +117,51 @@ function ToCritique()
   }):start()
 end
 
--- Key maps
-vim.keymap.set('n', '<leader>ma', ToCritique)
-vim.keymap.set("n", "<leader>p", function ()
-  local search_dirs = {
-    "java/com/google/api",
-    "javatests/com/google/api",
-    "apiserving",
-    "google/api"
+if inCitc() then
+  -- Key maps
+  vim.keymap.set('n', '<leader>ma', ToCritique)
+  vim.keymap.set("n", "<leader>p", function ()
+    local search_dirs = {
+      "java/com/google/api",
+      "javatests/com/google/api",
+      "apiserving/tenant",
+      "apiserving/serviceagentmanager",
+      "google/api"
+    }
+    require("telescope.builtin").find_files{
+      find_command = {"pfind", "-type", "f", unpack(search_dirs)},
+      follow = false,
+      hidden = false,
+      no_ignore = false,
+    }
+  end)
+
+  local nvim_lsp = require('lspconfig')
+  local configs = require('lspconfig.configs')
+  configs.ciderlsp = {
+    default_config = {
+      cmd = {'ssh', 'suyog.c.googlers.com', '/google/bin/releases/cider/ciderlsp/ciderlsp', '--tooltag=nvim-lsp' , '--noforward_sync_responses'};
+      filetypes = {'c', 'cpp', 'java', 'proto', 'textproto', 'go', 'python', 'bzl'};
+      root_dir = nvim_lsp.util.root_pattern('BUILD');
+      settings = {};
+    }
   }
-  require("telescope.builtin").find_files{
-    find_command = {"pfind", "-type", "f", unpack(search_dirs)},
-    follow = false,
-    hidden = false,
-    no_ignore = false,
+
+  -- Setup CiderLSP.
+  nvim_lsp.ciderlsp.setup{
+    on_attach = function(client, bufnr)
+      -- Omni-completion via LSP. See `:help compl-omni`. Use <C-x><C-o> in
+      -- insert mode. Or use an external autocompleter (see below) for a
+      -- smoother UX.
+      vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+      if vim.lsp.formatexpr then -- Neovim v0.6.0+ only.
+        vim.api.nvim_buf_set_option(bufnr, "formatexpr", "v:lua.vim.lsp.formatexpr")
+      end
+      if vim.lsp.tagfunc then -- Neovim v0.6.0+ only.
+        -- Tag functionality via LSP. See `:help tag-commands`. Use <c-]> to
+        -- go-to-definition.
+        vim.api.nvim_buf_set_option(bufnr, "tagfunc", "v:lua.vim.lsp.tagfunc")
+      end
+    end
   }
-end)
+end
