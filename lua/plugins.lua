@@ -134,7 +134,6 @@ return require('packer').startup(function()
     end,
   }
   use {'gfanto/fzf-lsp.nvim', branch='main'}
-  use {'folke/trouble.nvim', branch='main', config=function() require("trouble").setup{} end}
   use {'L3MON4D3/LuaSnip',
   'rafamadriz/friendly-snippets',
   'saadparwaiz1/cmp_luasnip',
