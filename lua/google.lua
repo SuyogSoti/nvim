@@ -138,9 +138,13 @@ if inCitc() then
 
   local nvim_lsp = require('lspconfig')
   local configs = require('lspconfig.configs')
+  local cmd = {'ssh', 'suyog.c.googlers.com', '/google/bin/releases/cider/ciderlsp/ciderlsp', '--tooltag=nvim-lsp' , '--noforward_sync_responses'}
+  if vim.fn.hostname() == "suyog.c.googlers.com" then
+    cmd = {'/google/bin/releases/cider/ciderlsp/ciderlsp', '--tooltag=nvim-lsp' , '--noforward_sync_responses'}
+  end
   configs.ciderlsp = {
     default_config = {
-      cmd = {'ssh', 'suyog.c.googlers.com', '/google/bin/releases/cider/ciderlsp/ciderlsp', '--tooltag=nvim-lsp' , '--noforward_sync_responses'};
+      cmd = cmd;
       filetypes = {'c', 'cpp', 'java', 'proto', 'textproto', 'go', 'python', 'bzl'};
       root_dir = nvim_lsp.util.root_pattern('BUILD');
       settings = {};
