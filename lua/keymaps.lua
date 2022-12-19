@@ -47,6 +47,9 @@ local keyToCommands = {
     tc = "<cmd>Tclear<cr>",
     -- NvimTree
     n = "<cmd>NvimTreeFindFileToggle<cr>",
+    -- Git stuff
+    gw = require('telescope').extensions.git_worktree.git_worktrees,
+    gs = require('telescope').extensions.git_worktree.create_git_worktree,
   },
 }
 for topKey, val in pairs(keyToCommands) do

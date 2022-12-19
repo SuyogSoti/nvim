@@ -44,6 +44,10 @@ return require('packer').startup(function()
 
   -- Git Stuff
   use 'tpope/vim-fugitive'
+  use {'ThePrimeagen/git-worktree.nvim',requires={'nvim-telescope/telescope.nvim'}, config=function ()
+    require("git-worktree").setup({})
+    require("telescope").load_extension("git_worktree")
+  end}
   use 'rhysd/conflict-marker.vim'
   use 'mhinz/vim-signify'
 
@@ -54,7 +58,7 @@ return require('packer').startup(function()
   use {'lervag/vimtex', ft={'tex'}}
 
   -- navigation
-  use { 'kyazdani42/nvim-tree.lua', requires={'kyazdani42/nvim-web-devicons', opt=true}, config=function() 
+  use { 'kyazdani42/nvim-tree.lua', requires={'kyazdani42/nvim-web-devicons', opt=true}, config=function()
     require'nvim-tree'.setup {
       view = {
         width = 50,
@@ -63,10 +67,10 @@ return require('packer').startup(function()
   end}
   use {'junegunn/fzf.vim', requires={'junegunn/fzf'}}
 
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
   use {
     'nvim-telescope/telescope.nvim',
-    requires =  {'nvim-lua/plenary.nvim'},
+    requires =  {'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-fzf-native.nvim'},
     config = function ()
       require('telescope').setup{
         extensions = {
