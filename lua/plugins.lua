@@ -44,16 +44,6 @@ return require('packer').startup(function()
 
   -- Git Stuff
   use 'tpope/vim-fugitive'
-  use {'ThePrimeagen/git-worktree.nvim',requires={'nvim-telescope/telescope.nvim'}, config=function ()
-    local worktree = require("git-worktree")
-    worktree.setup({
-      change_directory_command = "!python3 ~/.config/nvim/wt.py",
-      update_on_change = false,
-      update_on_change_command = "",
-      clearjumps_on_change = false,
-    })
-    require("telescope").load_extension("git_worktree")
-  end}
   use 'rhysd/conflict-marker.vim'
   use 'mhinz/vim-signify'
 
