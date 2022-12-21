@@ -45,7 +45,13 @@ return require('packer').startup(function()
   -- Git Stuff
   use 'tpope/vim-fugitive'
   use {'ThePrimeagen/git-worktree.nvim',requires={'nvim-telescope/telescope.nvim'}, config=function ()
-    require("git-worktree").setup({})
+    local worktree = require("git-worktree")
+    worktree.setup({
+      change_directory_command = "!python3 ~/.config/nvim/wt.py",
+      update_on_change = false,
+      update_on_change_command = "",
+      clearjumps_on_change = false,
+    })
     require("telescope").load_extension("git_worktree")
   end}
   use 'rhysd/conflict-marker.vim'
@@ -120,7 +126,7 @@ return require('packer').startup(function()
   use {
     'williamboman/nvim-lsp-installer',
     requires={'neovim/nvim-lspconfig'},
-    run=function()  
+    run=function()
       local lsp_installer = require("nvim-lsp-installer")
       lsp_installer.install("clangd")
       lsp_installer.install("cssls")

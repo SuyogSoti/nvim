@@ -46,6 +46,7 @@ local keyToCommands = {
     ["9"]  = "<cmd>Tprevious<cr>",
     tr = "<cmd>T !!<cr>",
     ts = "<cmd>Tkill<cr>",
+    tt = "<cmd>Ttoggle<cr>",
     te = "<cmd>T exit<cr>",
     tc = "<cmd>Tclear<cr>",
     -- NvimTree
