@@ -12,9 +12,6 @@ end, { expr = true })
 local keyToCommands = {
   gl = require("telescope.builtin").diagnostics,
   gq = require("telescope.builtin").quickfix,
-  -- Git stuff
-  gp = require('telescope').extensions.git_worktree.git_worktrees,
-  gw = require('telescope').extensions.git_worktree.create_git_worktree,
   ["<leader>"] = {
     -- Telescope
     ["<space>"] = require("telescope.builtin").builtin,
