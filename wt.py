@@ -3,6 +3,7 @@
 import os
 import libtmux
 import sys
+import subprocess
 
 def attach_client(server: libtmux.Server, session_name: str):
     if os.getenv("TMUX") is None:
@@ -16,7 +17,14 @@ def main():
         raise(RuntimeError("need a path"))
     path = sys.argv[1]
     if not os.path.exists(path):
-        raise(RuntimeError("path not exist"))
+        if path.find("/") >= 0:
+            raise(RuntimeError("path not exist"))
+        is_in_worktree_cmd = "git rev-parse --is-inside-work-tree".split()
+        is_in_worktree = subprocess.run(is_in_worktree_cmd, capture_output=True, encoding="utf-8")
+        while is_in_worktree.stdout.strip() == "true":
+            os.chdir("./..")
+            is_in_worktree = subprocess.run(is_in_worktree_cmd, capture_output=True, encoding="utf-8")
+        subprocess.call(["git", "worktree", "add", "--checkout", path])
     path = os.path.abspath(path)
     name = "_".join(path.split("/")[-2:])
     session_name = name.replace(".git", "")
