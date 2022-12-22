@@ -89,12 +89,15 @@ session_finder() {
 
 
 session_git_worktree() {
-	fzf_out=$($git worktree list\
-	| awk '{ print $1 }'\
+	fzf_out=$($git branch \
+	| awk '{ print }'\
 	| fzf --print-query --prompt="$git_prompt" \
 	|| true)
-	session_name="$(echo "$fzf_out" | tail -n1 | sed 's/\n//g')"
-	echo "~/.config/nvim/wt.py $session_name"
+	session_name="$(echo "$fzf_out" \
+	| tail -n1 \
+	| sed 's/\*\s//g' \
+	| sed 's/\+\s//g' \
+	| sed 's/\n//g')"
 	~/.config/nvim/wt.py $session_name
 }
 case "$cmd" in

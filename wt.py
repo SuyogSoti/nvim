@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/python3
 
 import os
 import libtmux
@@ -24,7 +24,9 @@ def main():
         while is_in_worktree.stdout.strip() == "true":
             os.chdir("./..")
             is_in_worktree = subprocess.run(is_in_worktree_cmd, capture_output=True, encoding="utf-8")
-        subprocess.call(["git", "worktree", "add", "--checkout", path])
+        worktree_path = os.path.join(os.curdir, path)
+        if not os.path.exists(worktree_path):
+            subprocess.call(["git", "worktree", "add", path])
     path = os.path.abspath(path)
     name = "_".join(path.split("/")[-2:])
     session_name = name.replace(".git", "")
