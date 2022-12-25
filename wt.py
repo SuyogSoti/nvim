@@ -23,7 +23,7 @@ def main():
         is_in_worktree = subprocess.run(is_in_worktree_cmd, capture_output=True, encoding="utf-8")
     worktree_path = os.path.abspath(os.path.join(os.curdir, path))
     if not os.path.exists(worktree_path):
-        subprocess.call(["git", "worktree", "add", path])
+        subprocess.call(["git", "worktree", "add", "--guess-remote", path])
     path = worktree_path
     name = "_".join(path.split("/")[-2:])
     session_name = name.replace(".git", "")
