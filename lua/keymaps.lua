@@ -1,4 +1,13 @@
 vim.g.mapleader = ' '
+function quickfix_toggle()
+  for idx=1,vim.fn.winnr("$") do
+    if vim.fn.getwinvar(idx, '&syntax') == "qf" then
+      vim.cmd("cclose")
+      return
+    end
+  end
+  vim.cmd("copen")
+end
 
 -- Tab completion
 vim.keymap.set('i', '<Tab>', function()
@@ -11,7 +20,7 @@ end, { expr = true })
 -- editor commands
 local keyToCommands = {
   gl = require("telescope.builtin").diagnostics,
-  gq = require("telescope.builtin").quickfix,
+  gq = quickfix_toggle,
   ["<leader>"] = {
     -- Telescope
     ["<space>"] = require("telescope.builtin").builtin,
