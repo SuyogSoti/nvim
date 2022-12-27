@@ -23,7 +23,7 @@ return require('packer').startup(function()
       require('lualine').setup()
     end,
   }
-  use 'chriskempson/base16-vim'
+  use 'RRethy/nvim-base16'
 
   use {'andymass/vim-matchup', event = 'VimEnter'}
   use {'windwp/nvim-autopairs', config=function() require('nvim-autopairs').setup() end}
