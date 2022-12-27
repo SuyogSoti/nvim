@@ -37,16 +37,8 @@ colorscheme base16-oceanicnext
 " colorscheme base16-railscasts
 " colorscheme onedark
 
-" color of non text characters
+" color of non text characters like ~ from showing before line
 hi NonText guifg=bg
-
-highlight SignifySignAdd guifg=#87ff5f ctermfg=119 guibg=None ctermbg=None gui=bold cterm=bold
-highlight SignifySignDelete guifg=#df5f5f ctermfg=167 guibg=None ctermbg=None gui=bold cterm=bold
-highlight SignifySignChange guifg=#ffff5f ctermfg=227 guibg=None ctermbg=None gui=bold cterm=bold
-highlight clear SignColumn
-hi VertSplit ctermbg=NONE guibg=NONE
-set fillchars+=vert:│
-" set cc=80
 set laststatus=2
 set visualbell
 
