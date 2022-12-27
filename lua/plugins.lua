@@ -133,6 +133,14 @@ return require('packer').startup(function()
       lsp_installer.install("jdtls")
     end,
   }
+  use {
+    "ray-x/lsp_signature.nvim",
+    config=function ()
+      require "lsp_signature".setup({
+        hint_enable = false, -- repetitive hints
+      })
+    end
+  }
   use {'gfanto/fzf-lsp.nvim', branch='main'}
   use {'L3MON4D3/LuaSnip',
   'rafamadriz/friendly-snippets',
