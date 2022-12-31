@@ -1,7 +1,7 @@
 require("helper_funcs")
 
 -- Mappings.
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 -- See `:help vim.lsp.*` for documentation on any of the below functions
 vim.api.nvim_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -16,7 +16,7 @@ vim.api.nvim_set_keymap('n', 'ge', '<Cmd>lua vim.diagnostic.open_float()<CR>', o
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-vim.lsp.diagnostic.on_publish_diagnostics, {
+  vim.lsp.diagnostic.on_publish_diagnostics, {
   virtual_text = false
 })
 
@@ -25,4 +25,3 @@ if not inCitc() then
     server:setup({})
   end)
 end
-
