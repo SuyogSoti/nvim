@@ -36,7 +36,7 @@ local keyToCommands = {
     ["."] = "<cmd>tabnext<cr>",
     [","] = "<cmd>tabprevious<cr>",
     -- file save and exits
-    s = "<cmd>w<cr>",
+    s = "<cmd>update<cr>",
     q = "<cmd>qa!<cr>",
     w = "<cmd>q<cr>",
     -- vmux
