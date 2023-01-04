@@ -1,6 +1,8 @@
 vim.g.mapleader = ' '
-function quickfix_toggle()
-  for idx=1,vim.fn.winnr("$") do
+
+-- toggle quickfix list
+local function quickfix_toggle()
+  for idx = 1, vim.fn.winnr("$") do
     if vim.fn.getwinvar(idx, '&syntax') == "qf" then
       vim.cmd("cclose")
       return
@@ -24,47 +26,51 @@ local keyToCommands = {
   ["<leader>"] = {
     -- Telescope
     ["<space>"] = require("telescope.builtin").builtin,
-    p = require("telescope.builtin").find_files,
-    bb = require("telescope.builtin").buffers,
-    bs = require("telescope.builtin").current_buffer_fuzzy_find,
-    fh = require("telescope.builtin").help_tags,
-    ["/"] = require("telescope.builtin").live_grep,
+    p           = require("telescope.builtin").find_files,
+    bb          = require("telescope.builtin").buffers,
+    bs          = require("telescope.builtin").current_buffer_fuzzy_find,
+    fh          = require("telescope.builtin").help_tags,
+    ["/"]       = require("telescope.builtin").live_grep,
     -- buffers and tabs
-    ["]"] = "<cmd>bnext<cr>",
-    ["["] = "<cmd>bprevious<cr>",
-    [";"] = "<cmd>nohlsearch<cr>",
-    ["."] = "<cmd>tabnext<cr>",
-    [","] = "<cmd>tabprevious<cr>",
+    ["]"]       = "<cmd>bnext<cr>",
+    ["["]       = "<cmd>bprevious<cr>",
+    [";"]       = "<cmd>nohlsearch<cr>",
+    ["."]       = "<cmd>tabnext<cr>",
+    [","]       = "<cmd>tabprevious<cr>",
     -- file save and exits
-    s = "<cmd>update<cr>",
-    q = "<cmd>qa!<cr>",
-    w = "<cmd>q<cr>",
+    s           = "<cmd>update<cr>",
+    q           = "<cmd>qa!<cr>",
+    w           = "<cmd>q<cr>",
     -- vmux
-    rr = "<cmd>VimuxRunLastCommand<cr>",
-    rs = "<cmd>VimuxInterruptRunner<cr>",
+    rr          = "<cmd>VimuxRunLastCommand<cr>",
+    rs          = "<cmd>VimuxInterruptRunner<cr>",
     -- some splits and windows
-    ["\\"] = "<cmd>vsplit<cr>",
-    ["-"] = "<cmd>split<cr>",
+    ["\\"]      = "<cmd>vsplit<cr>",
+    ["-"]       = "<cmd>split<cr>",
     -- Reload file
-    fr = "<cmd>luafile ~/.config/nvim/init.lua<cr>",
+    fr          = "<cmd>luafile ~/.config/nvim/init.lua<cr>",
     -- Neoterm
-    ["0"]  = "<cmd>Tnext<cr>",
-    ["9"]  = "<cmd>Tprevious<cr>",
-    tr = "<cmd>T !!<cr>",
-    ts = "<cmd>Tkill<cr>",
-    tt = "<cmd>Ttoggle<cr>",
-    te = "<cmd>T exit<cr>",
-    tc = "<cmd>Tclear<cr>",
+    ["0"]       = "<cmd>Tnext<cr>",
+    ["9"]       = "<cmd>Tprevious<cr>",
+    tr          = "<cmd>T !!<cr>",
+    ts          = "<cmd>Tkill<cr>",
+    tt          = "<cmd>Ttoggle<cr>",
+    te          = "<cmd>T exit<cr>",
+    tc          = "<cmd>Tclear<cr>",
     -- NvimTree
-    n = "<cmd>NvimTreeFindFileToggle<cr>",
+    n           = "<cmd>NvimTreeFindFileToggle<cr>",
   },
 }
-for topKey, val in pairs(keyToCommands) do
-  if type(val) == "table" then
-    for key, cmd in pairs(val) do
-      vim.keymap.set("n", topKey..key, cmd)
+
+-- setKeyMaps recursively sets the key maps from the table given
+local function setKeyMaps(table, prefix)
+  for topKey, val in pairs(table) do
+    if type(val) == "table" then
+      setKeyMaps(val, prefix .. topKey)
+    else
+      vim.keymap.set("n", prefix .. topKey, val)
     end
-  else
-    vim.keymap.set("n", topKey, val)
   end
 end
+
+setKeyMaps(keyToCommands, "")
