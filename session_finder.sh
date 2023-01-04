@@ -96,7 +96,7 @@ session_git_worktree() {
 	| tail -n1 \
 	| awk '{ print $(NF) }' \
 	| sed 's/\n//g')"
-	~/.config/nvim/cli wt-tmux add $session_name
+	~/.cargo/bin/cli wt-tmux add $session_name
 }
 case "$cmd" in
 	status)
