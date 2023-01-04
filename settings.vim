@@ -52,12 +52,6 @@ let g:python_highlight_space_errors = 0
 autocmd FileType markdown,tex setlocal spell
 autocmd FileType ruby set shiftwidth=2
 
-" To make sure I do not switch into the quicklist buffer
-augroup qf
-  autocmd!
-  autocmd FileType qf set nobuflisted
-augroup END
-
 " If its neovim and not regular vim
 set inccommand=split
 aug fzf_setup
@@ -69,22 +63,13 @@ aug END
 let g:neoterm_default_mod = "vertical"
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-" This is for the cursorline
- augroup CursorLine
-   au!
-   au VimEnter * setlocal cursorline
-   au WinEnter * setlocal cursorline
-   au BufWinEnter * setlocal cursorline
-   au WinLeave * setlocal nocursorline
- augroup END
-
 if has('conceal')
   set conceallevel=0
 endif
 
 
 " vim-signify
-let g:signify_vcs_list = ['hg', 'git']
+let g:signify_vcs_list = ['git']
 set signcolumn=yes
 set updatetime=100
 let g:cursorhold_updatetime = 100
@@ -99,8 +84,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 
 " filetype overwrites
-autocmd BufNewFile,BufRead *.sdl set ft=sql
-autocmd BufNewFile,BufRead *.pi set ft=python
 let g:do_filetype_lua = 1
 let g:did_load_filetypes = 0
 

@@ -8,3 +8,4 @@ if inCitc() then
   require('google')
 end
 require('lsp')
+require('autocmds')
