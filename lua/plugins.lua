@@ -55,7 +55,8 @@ return require('packer').startup(function()
   use { 'lervag/vimtex', ft = { 'tex' } }
 
   -- navigation
-  use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons', opt = true }, config = function()
+  use 'kyazdani42/nvim-web-devicons' 
+  use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' }, config = function()
     require 'nvim-tree'.setup {
       view = {
         width = 50,
@@ -64,13 +65,18 @@ return require('packer').startup(function()
   end }
   use { 'junegunn/fzf.vim', requires = { 'junegunn/fzf' } }
 
+  use { 'nvim-telescope/telescope-ui-select.nvim' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-fzf-native.nvim' },
+    requires = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-fzf-native.nvim',
+      'nvim-telescope/telescope-ui-select.nvim' },
     config = function()
       require('telescope').setup {
         extensions = {
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown()
+          },
           fzf = {
             fuzzy = true, -- false will only do exact matching
             override_generic_sorter = true, -- override the generic sorter
@@ -86,6 +92,7 @@ return require('packer').startup(function()
           },
         }
       }
+      require("telescope").load_extension("ui-select")
       require('telescope').load_extension('fzf')
     end
   }
@@ -96,6 +103,14 @@ return require('packer').startup(function()
   -- Terminal stuff
   use 'kassio/neoterm'
 
+  -- Trouble.nvim
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {}
+    end
+  }
 
   -- treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function()

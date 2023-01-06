@@ -21,7 +21,7 @@ end, { expr = true })
 
 -- editor commands
 local keyToCommands = {
-  gl = require("telescope.builtin").diagnostics,
+  gl = "<cmd>TroubleToggle document_diagnostics<cr>",
   gq = quickfix_toggle,
   ["<leader>"] = {
     -- Telescope
