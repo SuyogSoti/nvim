@@ -143,7 +143,7 @@ return require('packer').startup(function()
       lsp_installer.install("intelephense")
       lsp_installer.install("pyright")
       lsp_installer.install("solargraph")
-      lsp_installer.install("sqls")
+      lsp_installer.install("sqlls")
       lsp_installer.install("rust_analyzer")
       lsp_installer.install("jdtls")
     end,
