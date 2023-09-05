@@ -114,13 +114,16 @@ return require('packer').startup(function()
 
   -- treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function()
-    require 'nvim-treesitter.configs'.setup {
-      ensure_installed = "all", -- one of "all", "maintained" (
-      ignore_install = {}, -- List of parsers to ignore installing
+    require'nvim-treesitter.configs'.setup {
+      -- A list of parser names, or "all" (the five listed parsers should always be installed)
+      ensure_installed = {'html', 'yaml'},
+      -- Install parsers synchronously (only applied to `ensure_installed`)
+      sync_install = false,
+      auto_install = true,
+      ignore_install = {},
       highlight = {
-        enable = true, -- false will disable the whole extension
+        enable = true,
         additional_vim_regex_highlighting = false,
-        disable = {}, -- list of language that will be disabled
       },
     }
   end }
@@ -128,26 +131,34 @@ return require('packer').startup(function()
   -- Neovim 0.5 stuff
   use 'nvim-lua/plenary.nvim'
   use 'nvim-lua/popup.nvim'
+  use 'neovim/nvim-lspconfig'
 
   -- lsp
   use {
-    'williamboman/nvim-lsp-installer',
-    requires = { 'neovim/nvim-lspconfig' },
-    run = function()
-      local lsp_installer = require("nvim-lsp-installer")
-      lsp_installer.install("clangd")
-      lsp_installer.install("cssls")
-      lsp_installer.install("gopls")
-      lsp_installer.install("html")
-      lsp_installer.install("tsserver")
-      lsp_installer.install("intelephense")
-      lsp_installer.install("pyright")
-      lsp_installer.install("solargraph")
-      lsp_installer.install("sqlls")
-      lsp_installer.install("rust_analyzer")
-      lsp_installer.install("jdtls")
+    "williamboman/mason.nvim",
+    requires = {"neovim/nvim-lspconfig"},
+    config = function()
+      require("mason").setup()
     end,
   }
+  use { "williamboman/mason-lspconfig.nvim", requires = {'williamboman/mason.nvim'}, config=function()
+    require("mason-lspconfig").setup {
+      ensure_installed = { 
+        "lua_ls",
+        "rust_analyzer",
+        "clangd",
+        "cssls",
+        "gopls",
+        "html",
+        "tsserver",
+        "intelephense",
+        "pyright",
+        "solargraph",
+        "sqlls",
+        "jdtls",
+      },
+    }
+  end}
   use {
     "ray-x/lsp_signature.nvim",
     config = function()
@@ -166,6 +177,50 @@ return require('packer').startup(function()
 
   -- copy paste that works throught ssh - only without tmux
   use { 'ojroques/vim-oscyank', branch = 'main' }
+
+  use {
+    "luckasRanarison/nvim-devdocs",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("nvim-devdocs").setup({
+        previewer_cmd = "glow", -- for example: "glow" or nil
+        cmd_args = {"-s", "dark", "-w", "80" },
+        picker_cmd_args = { "-p"},
+        ensure_installed = {
+          'go',
+          'rust',
+          'javascript',
+          'typescript',
+          'http',
+          'css',
+          'tailwindcss',
+          'c',
+          'cpp',
+          'dom',
+          'react',
+          'bash',
+          'cmake~3.26',
+          'dart~2',
+          'deno',
+          'docker',
+          'git',
+          'jquery',
+          'python~3.11',
+          'kubernetes',
+          'markdown',
+          'pandas~1',
+          'php',
+          'openjdk~19',
+          'postgresql~15',
+          'sqlite'
+        }, -- get automatically installed
+      })
+    end
+  }
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
