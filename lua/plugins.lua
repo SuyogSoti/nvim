@@ -137,13 +137,11 @@ return require('packer').startup(function()
   use {
     "williamboman/mason.nvim",
     requires = {"neovim/nvim-lspconfig"},
-    config = function()
-      require("mason").setup()
-    end,
   }
   use { "williamboman/mason-lspconfig.nvim", requires = {'williamboman/mason.nvim'}, config=function()
+    require("mason").setup()
     require("mason-lspconfig").setup {
-      ensure_installed = { 
+      ensure_installed = {
         "lua_ls",
         "rust_analyzer",
         "clangd",
@@ -188,6 +186,7 @@ return require('packer').startup(function()
     config = function()
       require("nvim-devdocs").setup({
         previewer_cmd = "glow", -- for example: "glow" or nil
+        picker_cmd = true,
         cmd_args = {"-s", "dark", "-w", "80" },
         picker_cmd_args = { "-p"},
         ensure_installed = {
@@ -214,7 +213,7 @@ return require('packer').startup(function()
           'markdown',
           'pandas~1',
           'php',
-          'openjdk~19',
+          -- 'openjdk~19',
           'postgresql~15',
           'sqlite'
         }, -- get automatically installed
