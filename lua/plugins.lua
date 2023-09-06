@@ -185,6 +185,9 @@ return require('packer').startup(function()
     },
     config = function()
       require("nvim-devdocs").setup({
+        mappings = { -- keymaps for the doc buffer
+          open_in_browser = "C-~"
+        },
         previewer_cmd = "glow", -- for example: "glow" or nil
         picker_cmd = true,
         cmd_args = {"-s", "dark", "-w", "80" },
