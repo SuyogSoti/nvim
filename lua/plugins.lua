@@ -221,6 +221,8 @@ return require('packer').startup(function()
           'sqlite'
         }, -- get automatically installed
       })
+    end
+  }
   -- this is for remote work
   use {
     'chipsenkbeil/distant.nvim',
