@@ -216,7 +216,7 @@ return require('packer').startup(function()
           'markdown',
           'pandas~1',
           'php',
-          -- 'openjdk~19',
+          'openjdk~19',
           'postgresql~15',
           'sqlite'
         }, -- get automatically installed

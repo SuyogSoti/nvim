@@ -1,3 +1,5 @@
+require("helper_funcs")
+
 vim.g.mapleader = ' '
 
 -- toggle quickfix list
@@ -19,6 +21,14 @@ vim.keymap.set('i', '<S-Tab>', function()
   return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"
 end, { expr = true })
 
+function findFilesCmd()
+  if inDatabricks() then
+    return "<cmd>FZF<cr>"
+  end
+  return require("telescope.builtin").find_files
+end
+
+
 -- editor commands
 local keyToCommands = {
   gl = "<cmd>TroubleToggle document_diagnostics<cr>",
@@ -27,11 +37,11 @@ local keyToCommands = {
     -- Telescope
     ["<space>"] = require("telescope.builtin").builtin,
     v           = require("telescope.builtin").commands,
-    p           = require("telescope.builtin").find_files,
+    p           = findFilesCmd(),
     bb          = require("telescope.builtin").buffers,
     bs          = require("telescope.builtin").current_buffer_fuzzy_find,
     fh          = require("telescope.builtin").help_tags,
-    k           = "<cmd>DevdocsOpen<cr>",
+    ["m"]       = "<cmd>DevdocsOpen<cr>",
     ["/"]       = require("telescope.builtin").live_grep,
     -- buffers and tabs
     ["]"]       = "<cmd>bnext<cr>",

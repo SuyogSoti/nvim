@@ -1,6 +1,13 @@
 -- Am I at work?
 function inCitc()
-  citc_path = "/google/src/cloud/suyogsoti/"
+  work_path = "/google/src/cloud/suyogsoti/"
   path = vim.loop.cwd()
-  return string.find(path, citc_path) and vim.endswith(path, "/google3")
+  return string.find(path, work_path) and vim.endswith(path, "/google3")
+end
+
+-- Am I at work?
+function inDatabricks()
+  work_path = "/Users/suyog.soti/code/databricks-universe.git"
+  path = vim.loop.cwd()
+  return vim.startswith(path, work_path)
 end
