@@ -20,7 +20,17 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
   virtual_text = false
 })
 
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    client.server_capabilities.semanticTokensProvider = nil
+  end,
+});
+
 if not inCitc() then
+  require("lspconfig").metals.setup{
+    root_dir = require 'lspconfig.util'.root_pattern("BUILD", "BUILD.bazel", "build.sbt", "build.sc", "build.gradle", "pom.xml")
+  }
   require("mason-lspconfig").setup_handlers {
     -- The first entry (without a key) will be the default handler
     -- and will be called for each installed server that doesn't have
@@ -28,10 +38,10 @@ if not inCitc() then
     function (server_name) -- default handler (optional)
       require("lspconfig")[server_name].setup {}
     end,
-    -- -- Next, you can provide a dedicated handler for specific servers.
-    -- -- For example, a handler override for the `rust_analyzer`:
+    -- Next, you can provide a dedicated handler for specific servers.
+    -- For example, a handler override for the `rust_analyzer`:
     -- ["rust_analyzer"] = function ()
-      --     require("rust-tools").setup {}
-      -- end
+    --     require'lspconfig'.rust_analyzer.setup{}
+    --   end
     }
 end

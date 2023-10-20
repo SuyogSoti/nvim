@@ -21,9 +21,25 @@ vim.keymap.set('i', '<S-Tab>', function()
   return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"
 end, { expr = true })
 
-function findFilesCmd()
+local function find_files()
   if inDatabricks() then
-    return "<cmd>FZF<cr>"
+    return function ()
+      local search_dirs = {
+        ".",
+        "ratelimit-v2",
+        "common",
+        "apiproxy",
+        "qa",
+        "feature-flag/configs/ratelimit"
+      }
+      local args = vim.split("-H -0 -E .git -tf -c never", " ")
+      require("telescope.builtin").find_files{
+        find_command = {"fd", unpack(args), unpack(search_dirs)},
+        follow = false,
+        hidden = false,
+        no_ignore = false,
+      }
+    end
   end
   return require("telescope.builtin").find_files
 end
@@ -37,7 +53,7 @@ local keyToCommands = {
     -- Telescope
     ["<space>"] = require("telescope.builtin").builtin,
     v           = require("telescope.builtin").commands,
-    p           = findFilesCmd(),
+    p           = find_files(),
     bb          = require("telescope.builtin").buffers,
     bs          = require("telescope.builtin").current_buffer_fuzzy_find,
     fh          = require("telescope.builtin").help_tags,

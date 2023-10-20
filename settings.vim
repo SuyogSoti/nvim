@@ -51,6 +51,7 @@ let g:python_highlight_space_errors = 0
 " Spell check in the markdown files
 autocmd FileType markdown,tex setlocal spell
 autocmd FileType ruby set shiftwidth=2
+autocmd BufNewFile,BufRead *.jsonnet.TEMPLATE set ft=jsonnet
 
 " If its neovim and not regular vim
 set inccommand=split
