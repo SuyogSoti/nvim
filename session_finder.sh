@@ -98,6 +98,17 @@ session_git_worktree() {
 	| sed 's/\n//g')"
 	~/.cargo/bin/cli wt-tmux add $session_name
 }
+
+session_git_checkout() {
+	fzf_out=$($git branch \
+	| fzf --print-query --prompt="$git_prompt" \
+	|| true)
+	session_name="$(echo "$fzf_out" \
+	| tail -n1 \
+	| awk '{ print $(NF) }' \
+	| sed 's/\n//g')"
+	git checkout $session_name
+}
 case "$cmd" in
 	status)
 		session_status
@@ -107,6 +118,9 @@ case "$cmd" in
 		;;
 	git-worktree)
 		session_git_worktree
+		;;
+	git-checkout)
+		session_git_checkout
 		;;
 	next)
 		session_next

@@ -30,9 +30,11 @@ local function find_files()
         "common",
         "apiproxy",
         "qa",
-        "feature-flag/configs/ratelimit"
+        "feature-flag/configs/ratelimit",
+        "servicemesh-control",
+        "dummyservice"
       }
-      local args = vim.split("-H -0 -E .git -tf -c never", " ")
+      local args = vim.split("-H -0 -E .git -type f -c never", " ")
       require("telescope.builtin").find_files{
         find_command = {"fd", unpack(args), unpack(search_dirs)},
         follow = false,

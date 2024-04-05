@@ -7,7 +7,7 @@ end
 
 -- Am I at work?
 function inDatabricks()
-  work_path = "/Users/suyog.soti/code/databricks-universe.git"
+  work_path = "/Users/suyog.soti/code/universe"
   path = vim.loop.cwd()
   return vim.startswith(path, work_path)
 end

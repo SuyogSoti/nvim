@@ -218,18 +218,53 @@ return require('packer').startup(function()
           'php',
           'openjdk~19',
           'postgresql~15',
-          'sqlite'
+          'sqlite',
         }, -- get automatically installed
       })
     end
   }
-  -- this is for remote work
+
   use {
-    'chipsenkbeil/distant.nvim',
-    branch = 'v0.3',
+    "scalameta/nvim-metals",
+    requires = {
+      "nvim-lua/plenary.nvim",
+    },
     config = function()
-      require('distant'):setup()
+      local metals_config = require("metals").bare_config()
+      metals_config.on_attach = function(client, bufnr)
+        client.server_capabilities.semanticTokensProvider = nil
+      end
+      metals_config.useGlobalExecutable = true
+      local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "scala", "sbt", "java" },
+        callback = function()
+          require("metals").initialize_or_attach(metals_config)
+        end,
+        group = nvim_metals_group,
+      })
     end
+  }
+
+  use {'bazelbuild/vim-bazel', requires = {"google/vim-maktaba"}}
+
+
+  use {
+      "ThePrimeagen/harpoon",
+      branch = "harpoon2",
+      requires = { "nvim-lua/plenary.nvim" },
+      config = function ()
+        local harpoon = require("harpoon")
+        -- REQUIRED
+        harpoon:setup()
+        -- REQUIRED
+
+        vim.keymap.set("n", "<leader>0", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+        vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
+        vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
+        vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
+        vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
+      end
   }
 
   if PACKER_BOOTSTRAP then
