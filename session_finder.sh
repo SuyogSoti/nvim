@@ -96,7 +96,7 @@ session_git_worktree() {
 	| tail -n1 \
 	| awk '{ print $(NF) }' \
 	| sed 's/\n//g')"
-	~/.cargo/bin/cli wt-tmux add $session_name
+	cli wt-tmux add $session_name
 }
 
 session_git_checkout() {
