@@ -66,7 +66,6 @@ return require('packer').startup(function()
   use { 'junegunn/fzf.vim', requires = { 'junegunn/fzf' } }
 
   use { 'nvim-telescope/telescope-ui-select.nvim' }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use {
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-fzf-native.nvim',
@@ -77,12 +76,6 @@ return require('packer').startup(function()
           ["ui-select"] = {
             require("telescope.themes").get_dropdown()
           },
-          fzf = {
-            fuzzy = true, -- false will only do exact matching
-            override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
-            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-          }
         },
         defaults = {
           mappings = {
@@ -93,7 +86,6 @@ return require('packer').startup(function()
         }
       }
       require("telescope").load_extension("ui-select")
-      require('telescope').load_extension('fzf')
     end
   }
 
@@ -175,54 +167,6 @@ return require('packer').startup(function()
 
   -- copy paste that works throught ssh - only without tmux
   use { 'ojroques/vim-oscyank', branch = 'main' }
-
-  use {
-    "luckasRanarison/nvim-devdocs",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = function()
-      require("nvim-devdocs").setup({
-        mappings = { -- keymaps for the doc buffer
-          open_in_browser = "C-~"
-        },
-        previewer_cmd = "glow", -- for example: "glow" or nil
-        picker_cmd = true,
-        cmd_args = {"-s", "dark", "-w", "80" },
-        picker_cmd_args = { "-p"},
-        ensure_installed = {
-          'go',
-          'rust',
-          'javascript',
-          'typescript',
-          'http',
-          'css',
-          'tailwindcss',
-          'c',
-          'cpp',
-          'dom',
-          'react',
-          'bash',
-          'cmake~3.26',
-          'dart~2',
-          'deno',
-          'docker',
-          'git',
-          'jquery',
-          'python~3.11',
-          'kubernetes',
-          'markdown',
-          'pandas~1',
-          'php',
-          'openjdk~19',
-          'postgresql~15',
-          'sqlite',
-        }, -- get automatically installed
-      })
-    end
-  }
 
   use {
     "scalameta/nvim-metals",
