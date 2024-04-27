@@ -14,6 +14,8 @@ set autoindent
 set splitbelow
 set pumheight=10
 set tabstop=4
+set expandtab
+set shiftwidth=4
 
 " reload the file from the buffer automatically
 set autoread
@@ -35,7 +37,6 @@ let g:one_allow_italics = 1
 " colorscheme base16-gruvbox-dark-pale
 " colorscheme base16-material
 " colorscheme base16-railscasts
-" colorscheme onedark
 colorscheme base16-ayu-mirage
 
 " color of non text characters like ~ from showing before line
