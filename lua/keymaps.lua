@@ -32,7 +32,10 @@ local function find_files()
         "qa",
         "feature-flag/configs/ratelimit",
         "servicemesh-control",
-        "dummyservice"
+        "dummyservice",
+        "armeria",
+        "dicer",
+        "dr",
       }
       local args = vim.split("-H -0 -E .git -type f -c never", " ")
       require("telescope.builtin").find_files{

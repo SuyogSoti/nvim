@@ -1,6 +1,5 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
-local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+local fn = vim.fn local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
     install_path })
@@ -28,7 +27,6 @@ return require('packer').startup(function()
 
   use { 'andymass/vim-matchup', event = 'VimEnter' }
   use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end }
-  use 'tpope/vim-commentary'
   -- Note: vim sound make it not change cursor when d is pressed
   use 'tpope/vim-surround'
   use 'tpope/vim-unimpaired'
@@ -157,7 +155,6 @@ return require('packer').startup(function()
       })
     end
   }
-  use { 'gfanto/fzf-lsp.nvim', branch = 'main' }
   use { 'L3MON4D3/LuaSnip',
     'rafamadriz/friendly-snippets',
     'saadparwaiz1/cmp_luasnip',

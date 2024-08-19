@@ -33,11 +33,11 @@ set termguicolors
 let g:one_allow_italics = 1
 " colorscheme base16-monokai
 " colorscheme base16-onedark
-" colorscheme base16-oceanicnext
+colorscheme base16-oceanicnext
 " colorscheme base16-gruvbox-dark-pale
 " colorscheme base16-material
 " colorscheme base16-railscasts
-colorscheme base16-ayu-mirage
+" colorscheme base16-ayu-mirage
 
 " color of non text characters like ~ from showing before line
 hi NonText guifg=bg
