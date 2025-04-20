@@ -43,13 +43,11 @@ return {
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned
-      -- nerd_font_variant = 'mono'
+      nerd_font_variant = 'mono'
     },
 
     -- (Default) Only show the documentation popup when manually triggered
     completion = { 
-        documentation = { auto_show = true },
-
         -- Disable auto brackets
         -- NOTE: some LSPs may add auto brackets themselves anyway
         accept = { auto_brackets = { enabled = false }, },
@@ -61,7 +59,11 @@ return {
         ghost_text = { enabled = false },
 
         -- Show documentation when selecting a completion item
-        documentation = { auto_show = true, auto_show_delay_ms = 500 },
+        documentation = { auto_show = true, auto_show_delay_ms = 100 },
+
+        trigger = {
+            show_on_trigger_character = true,
+        },
     },
 
 
@@ -69,6 +71,9 @@ return {
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
+      min_keyword_length = function(ctx)
+        return ctx.trigger.kind == "trigger_character" and 0 or 1
+      end,
     },
 
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
