@@ -34,6 +34,7 @@ function getSearchableFiles()
         "envoy",
       }
   else
-    return {}
+    return {
+    }
   end
 end

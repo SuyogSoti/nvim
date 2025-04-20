@@ -2,9 +2,16 @@ require("helper_funcs")
 
 return {
   "folke/snacks.nvim",
+  lazy = false,
   opts = {
     picker = {
       dirs = getSearchableFiles(),
+    },
+    notifier = {},
+    gitbrowse = {
+      -- your gitbrowse configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
     },
     explorer = {},
   },
@@ -18,10 +25,11 @@ return {
     --
     -- find
     { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
-    --
+
     -- Commands
     { "<leader><space>", function() Snacks.picker() end, desc = "All Pickers" },
-    { "<leader><c>", function() Snacks.picker.commands() end, desc = "Commands" },
+    { "<leader>c", function() Snacks.picker.commands() end, desc = "Commands" },
+    { "<leader>G", function() Snacks.gitbrowse() end, desc = "Commands" },
 
     -- LSP
     { "gl", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },

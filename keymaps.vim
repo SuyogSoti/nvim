@@ -10,10 +10,6 @@ noremap <Leader>h <C-W><C-H>
 
 map <leader>d :bp<bar>sp<bar>bn<bar>bd<CR>
 
-" vim easymotion
-map <leader>e <Plug>(easymotion-prefix)
-map <C-e> <Plug>(easymotion-prefix)
-
 " vim-comentary mappings
 nmap <leader>c <Plug>Commentary
 xmap <leader>c <Plug>Commentary
