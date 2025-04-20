@@ -1,4 +1,5 @@
 return {
     'ojroques/vim-oscyank',
-    branch = 'main'
+    branch = 'main',
+    enable = true,
 }
