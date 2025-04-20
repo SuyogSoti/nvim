@@ -28,7 +28,7 @@ return {
 
     -- Commands
     { "<leader><space>", function() Snacks.picker() end, desc = "All Pickers" },
-    { "<leader>c", function() Snacks.picker.commands() end, desc = "Commands" },
+    { "<leader>o", function() Snacks.picker.commands() end, desc = "Commands" },
     { "<leader>G", function() Snacks.gitbrowse() end, desc = "Commands" },
 
     -- LSP
