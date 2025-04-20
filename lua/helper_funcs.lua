@@ -11,3 +11,29 @@ function inDatabricks()
   path = vim.loop.cwd()
   return vim.startswith(path, work_path)
 end
+
+function getSearchableFiles()
+  if inCitc() then
+    return {
+      "java/com/google/api",
+      "javatests/com/google/api",
+      "apiserving/tenant",
+      "apiserving/serviceagentmanager",
+      "google/api",
+    }
+  elseif inDatabricks() then
+      return {
+        "ratelimit-v2",
+        "common",
+        "apiproxy",
+        "servicemesh-control",
+        "dummyservice",
+        "armeria",
+        "dicer",
+        "pop-proxy",
+        "envoy",
+      }
+  else
+    return {}
+  end
+end

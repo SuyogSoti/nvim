@@ -119,21 +119,6 @@ end
 
 -- Key maps
 vim.keymap.set('n', '<leader>ma', ToCritique)
-vim.keymap.set("n", "<leader>p", function ()
-  local search_dirs = {
-    "java/com/google/api",
-    "javatests/com/google/api",
-    "apiserving/tenant",
-    "apiserving/serviceagentmanager",
-    "google/api"
-  }
-  require("telescope.builtin").find_files{
-    find_command = {"pfind", "-type", "f", unpack(search_dirs)},
-    follow = false,
-    hidden = false,
-    no_ignore = false,
-  }
-end)
 
 local nvim_lsp = require('lspconfig')
 local configs = require('lspconfig.configs')

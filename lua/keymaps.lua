@@ -21,49 +21,11 @@ vim.keymap.set('i', '<S-Tab>', function()
   return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"
 end, { expr = true })
 
-local function find_files()
-  if inDatabricks() then
-    return function ()
-      local search_dirs = {
-        ".",
-        "ratelimit-v2",
-        "common",
-        "apiproxy",
-        "qa",
-        "feature-flag/configs/ratelimit",
-        "servicemesh-control",
-        "dummyservice",
-        "armeria",
-        "dicer",
-        "dr",
-      }
-      local args = vim.split("-H -0 -E .git -type f -c never", " ")
-      require("telescope.builtin").find_files{
-        find_command = {"fd", unpack(args), unpack(search_dirs)},
-        follow = false,
-        hidden = false,
-        no_ignore = false,
-      }
-    end
-  end
-  return require("telescope.builtin").find_files
-end
-
-
 -- editor commands
 local keyToCommands = {
   gl = "<cmd>TroubleToggle document_diagnostics<cr>",
   gq = quickfix_toggle,
   ["<leader>"] = {
-    -- Telescope
-    ["<space>"] = require("telescope.builtin").builtin,
-    v           = require("telescope.builtin").commands,
-    p           = find_files(),
-    bb          = require("telescope.builtin").buffers,
-    bs          = require("telescope.builtin").current_buffer_fuzzy_find,
-    fh          = require("telescope.builtin").help_tags,
-    ["m"]       = "<cmd>DevdocsOpen<cr>",
-    ["/"]       = require("telescope.builtin").live_grep,
     -- buffers and tabs
     ["]"]       = "<cmd>bnext<cr>",
     ["["]       = "<cmd>bprevious<cr>",
@@ -90,8 +52,6 @@ local keyToCommands = {
     tt          = "<cmd>Ttoggle<cr>",
     te          = "<cmd>T exit<cr>",
     tc          = "<cmd>Tclear<cr>",
-    -- NvimTree
-    n           = "<cmd>NvimTreeFindFileToggle<cr>",
   },
 }
 

@@ -1,5 +1,4 @@
 " Keybindings!!!
-let mapleader=" "
 nnoremap <silent> } :<C-u>execute "keepjumps norm! " . v:count1 . "}"<CR>
 nnoremap <silent> { :<C-u>execute "keepjumps norm! " . v:count1 . "{"<CR>
 nnoremap <C-U> 5<C-y>
