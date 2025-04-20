@@ -1,7 +1,5 @@
 require("helper_funcs")
 
-vim.g.mapleader = ' '
-
 -- toggle quickfix list
 local function quickfix_toggle()
   for idx = 1, vim.fn.winnr("$") do
@@ -13,13 +11,8 @@ local function quickfix_toggle()
   vim.cmd("copen")
 end
 
--- Tab completion
-vim.keymap.set('i', '<Tab>', function()
-  return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
-end, { expr = true })
-vim.keymap.set('i', '<S-Tab>', function()
-  return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"
-end, { expr = true })
+vim.api.nvim_set_hl(0, "SnacksPickerDir", { fg = "#928374" })
+
 
 -- editor commands
 local keyToCommands = {
