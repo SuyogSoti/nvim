@@ -43,6 +43,7 @@ return {
           "solargraph",
           "sqlls",
           "jdtls",
+          "jsonnet_ls",
       }
 
       local lspconfig = require('lspconfig')

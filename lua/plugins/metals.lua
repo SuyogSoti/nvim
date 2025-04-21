@@ -6,7 +6,6 @@ return {
       metals_config.on_attach = function(client, bufnr)
         client.server_capabilities.semanticTokensProvider = nil
       end
-      metals_config.useGlobalExecutable = true
       local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "scala", "sbt", "java" },
