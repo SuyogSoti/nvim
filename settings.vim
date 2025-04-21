@@ -5,7 +5,7 @@
 " set completeopt-=preview " disable preview window at the bottom of the screen
 " set completeopt=menuone,noselect
 set completeopt=menuone,noinsert,noselect
-set clipboard^=unnamed,unnamedplus
+set clipboard+=unnamedplus
 filetype plugin indent on
 set nocompatible
 set ignorecase
